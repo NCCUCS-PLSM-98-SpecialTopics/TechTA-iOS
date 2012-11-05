@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TASUPViewController.h"
 
-@interface TAViewController : UIViewController
+@interface TAViewController :TASUPViewController
+
+
 
 @end

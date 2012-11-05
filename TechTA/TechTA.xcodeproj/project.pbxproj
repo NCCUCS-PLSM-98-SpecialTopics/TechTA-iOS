@@ -27,6 +27,8 @@
 		7BBDA38E1647B744007A04AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA38D1647B744007A04AE /* Security.framework */; };
 		7BBDA3A31647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3A21647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a */; };
 		7BBDA3A51647B866007A04AE /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3A41647B866007A04AE /* libUnittWebSocketClient.a */; };
+		7BBDA3AC1647ED6B007A04AE /* TAWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */; };
+		7BBDA3B41647F07E007A04AE /* TASUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3B31647F07E007A04AE /* TASUPViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,10 @@
 		7BBDA3A11647B850007A04AE /* WebSocketMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketMessage.h; sourceTree = "<group>"; };
 		7BBDA3A21647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUnittWebSocketClient 23-19-17-057.a"; sourceTree = "<group>"; };
 		7BBDA3A41647B866007A04AE /* libUnittWebSocketClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUnittWebSocketClient.a; sourceTree = "<group>"; };
+		7BBDA3AA1647ED6B007A04AE /* TAWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAWebSocket.h; sourceTree = "<group>"; };
+		7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAWebSocket.m; sourceTree = "<group>"; };
+		7BBDA3B21647F07E007A04AE /* TASUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TASUPViewController.h; sourceTree = "<group>"; };
+		7BBDA3B31647F07E007A04AE /* TASUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TASUPViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +159,10 @@
 				7BBDA3691647B6D8007A04AE /* TAViewController.m */,
 				7BBDA36B1647B6D8007A04AE /* TAViewController.xib */,
 				7BBDA3571647B6D8007A04AE /* Supporting Files */,
+				7BBDA3AA1647ED6B007A04AE /* TAWebSocket.h */,
+				7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */,
+				7BBDA3B21647F07E007A04AE /* TASUPViewController.h */,
+				7BBDA3B31647F07E007A04AE /* TASUPViewController.m */,
 			);
 			path = TechTA;
 			sourceTree = "<group>";
@@ -324,6 +334,8 @@
 				7BBDA35D1647B6D8007A04AE /* main.m in Sources */,
 				7BBDA3611647B6D8007A04AE /* TAAppDelegate.m in Sources */,
 				7BBDA36A1647B6D8007A04AE /* TAViewController.m in Sources */,
+				7BBDA3AC1647ED6B007A04AE /* TAWebSocket.m in Sources */,
+				7BBDA3B41647F07E007A04AE /* TASUPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
