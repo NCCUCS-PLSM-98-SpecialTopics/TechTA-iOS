@@ -67,7 +67,7 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"OX問答";
+            cell.textLabel.text = @"選擇問答";
             cell.detailTextLabel.text = @"Select";
             break;
             
@@ -92,7 +92,29 @@
     
     return cell;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:{
+            TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
+            [self.navigationController pushViewController:qaView animated:YES];
+            break;
+        }
+        case 1:{
+            TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
+            [self.navigationController pushViewController:askView animated:YES];
+        }
+            break;
+        case 2:{
+            TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
+            [self.navigationController pushViewController:pollView animated:YES];
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
 
 - (void)viewDidLoad
 {

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		7B289B2E1649257700600696 /* TAMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B289B2C1649257700600696 /* TAMenuViewController.m */; };
 		7B289B2F1649257700600696 /* TAMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B2D1649257700600696 /* TAMenuViewController.xib */; };
+		7B289B391649342800600696 /* TAQAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B289B371649342700600696 /* TAQAViewController.m */; };
+		7B289B3A1649342800600696 /* TAQAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B381649342700600696 /* TAQAViewController.xib */; };
+		7B289B3E1649345E00600696 /* TAASKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B289B3C1649345E00600696 /* TAASKViewController.m */; };
+		7B289B3F1649345E00600696 /* TAASKViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B3D1649345E00600696 /* TAASKViewController.xib */; };
+		7B289B43164934A700600696 /* TAPollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B289B41164934A700600696 /* TAPollViewController.m */; };
+		7B289B44164934A700600696 /* TAPollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B42164934A700600696 /* TAPollViewController.xib */; };
 		7BBDA3511647B6D8007A04AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3501647B6D8007A04AE /* UIKit.framework */; };
 		7BBDA3531647B6D8007A04AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3521647B6D8007A04AE /* Foundation.framework */; };
 		7BBDA3551647B6D8007A04AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3541647B6D8007A04AE /* CoreGraphics.framework */; };
@@ -47,6 +53,15 @@
 		7B289B2B1649257700600696 /* TAMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAMenuViewController.h; sourceTree = "<group>"; };
 		7B289B2C1649257700600696 /* TAMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAMenuViewController.m; sourceTree = "<group>"; };
 		7B289B2D1649257700600696 /* TAMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAMenuViewController.xib; sourceTree = "<group>"; };
+		7B289B361649342700600696 /* TAQAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAQAViewController.h; sourceTree = "<group>"; };
+		7B289B371649342700600696 /* TAQAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAQAViewController.m; sourceTree = "<group>"; };
+		7B289B381649342700600696 /* TAQAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAQAViewController.xib; sourceTree = "<group>"; };
+		7B289B3B1649345E00600696 /* TAASKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAASKViewController.h; sourceTree = "<group>"; };
+		7B289B3C1649345E00600696 /* TAASKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAASKViewController.m; sourceTree = "<group>"; };
+		7B289B3D1649345E00600696 /* TAASKViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAASKViewController.xib; sourceTree = "<group>"; };
+		7B289B40164934A700600696 /* TAPollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPollViewController.h; sourceTree = "<group>"; };
+		7B289B41164934A700600696 /* TAPollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPollViewController.m; sourceTree = "<group>"; };
+		7B289B42164934A700600696 /* TAPollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAPollViewController.xib; sourceTree = "<group>"; };
 		7BBDA34C1647B6D8007A04AE /* TechTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BBDA3501647B6D8007A04AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7BBDA3521647B6D8007A04AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -166,6 +181,15 @@
 				7B289B2B1649257700600696 /* TAMenuViewController.h */,
 				7B289B2C1649257700600696 /* TAMenuViewController.m */,
 				7B289B2D1649257700600696 /* TAMenuViewController.xib */,
+				7B289B361649342700600696 /* TAQAViewController.h */,
+				7B289B371649342700600696 /* TAQAViewController.m */,
+				7B289B381649342700600696 /* TAQAViewController.xib */,
+				7B289B3B1649345E00600696 /* TAASKViewController.h */,
+				7B289B3C1649345E00600696 /* TAASKViewController.m */,
+				7B289B3D1649345E00600696 /* TAASKViewController.xib */,
+				7B289B40164934A700600696 /* TAPollViewController.h */,
+				7B289B41164934A700600696 /* TAPollViewController.m */,
+				7B289B42164934A700600696 /* TAPollViewController.xib */,
 				7BBDA3571647B6D8007A04AE /* Supporting Files */,
 				7BBDA3AA1647ED6B007A04AE /* TAWebSocket.h */,
 				7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */,
@@ -306,6 +330,9 @@
 				7BBDA3671647B6D8007A04AE /* Default-568h@2x.png in Resources */,
 				7BBDA36D1647B6D8007A04AE /* TAViewController.xib in Resources */,
 				7B289B2F1649257700600696 /* TAMenuViewController.xib in Resources */,
+				7B289B3A1649342800600696 /* TAQAViewController.xib in Resources */,
+				7B289B3F1649345E00600696 /* TAASKViewController.xib in Resources */,
+				7B289B44164934A700600696 /* TAPollViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +373,9 @@
 				7BBDA3AC1647ED6B007A04AE /* TAWebSocket.m in Sources */,
 				7BBDA3B41647F07E007A04AE /* TASUPViewController.m in Sources */,
 				7B289B2E1649257700600696 /* TAMenuViewController.m in Sources */,
+				7B289B391649342800600696 /* TAQAViewController.m in Sources */,
+				7B289B3E1649345E00600696 /* TAASKViewController.m in Sources */,
+				7B289B43164934A700600696 /* TAPollViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

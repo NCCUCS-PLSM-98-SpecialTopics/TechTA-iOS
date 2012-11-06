@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TASUPViewController.h"
 
+#import "TAQAViewController.h"
+#import "TAASKViewController.h"
+#import "TAPollViewController.h"
+
 @interface TAMenuViewController : TASUPViewController
 
 
