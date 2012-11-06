@@ -7,12 +7,14 @@
 //
 
 #import "TAViewController.h"
+#import "TAAppDelegate.h"
 
 @interface TAViewController ()
 
 @end
 
 @implementation TAViewController
+
 
 - (void)viewDidLoad
 {
@@ -24,6 +26,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)loginButtonPressed:(id)sender
+{
+    TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
+    [self.navigationController pushViewController:menuView animated:true];
 }
 
 @end

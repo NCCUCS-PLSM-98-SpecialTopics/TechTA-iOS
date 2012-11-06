@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TASUPViewController.h"
+#import "TAMenuViewController.h"
 
 @interface TAViewController :TASUPViewController
 
+@property(strong,nonatomic) IBOutlet UIButton* loginbutton;
+//@property(strong,nonatomic) TAMenuViewController* menuView;
 
+-(IBAction)loginButtonPressed:(id)sender;
 
 @end
