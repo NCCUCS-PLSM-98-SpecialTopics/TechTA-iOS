@@ -1,18 +1,18 @@
 //
-//  TALoginViewController.m
+//  TACourseTabViewController.m
 //  TechTA
 //
 //  Created by Shih Sunnia on 12/11/10.
 //  Copyright (c) 2012年 Shih Sunnia. All rights reserved.
 //
 
-#import "TALoginViewController.h"
+#import "TACourseTabViewController.h"
 
-@interface TALoginViewController ()
+@interface TACourseTabViewController ()
 
 @end
 
-@implementation TALoginViewController
+@implementation TACourseTabViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning

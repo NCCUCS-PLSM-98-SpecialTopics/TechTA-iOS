@@ -36,7 +36,7 @@
 
 -(IBAction)loginButtonPressed:(id)sender
 {
-    NSNumber* tempwsreturn=[[NSNumber alloc]initWithInt:1];
+    NSNumber* tempwsreturn=[[NSNumber alloc]initWithInt:2];
     switch (tempwsreturn.intValue) {
         case 1:{
             TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
@@ -44,7 +44,9 @@
             break;
         };
         case 2:{
-            
+            TARegistViewController* registView=[[TARegistViewController alloc] initWithNibName:@"TARegistViewController" bundle:nil];
+            [self.navigationController pushViewController:registView animated:true];
+            break;
         }
         default:
             break;

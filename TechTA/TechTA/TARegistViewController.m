@@ -7,6 +7,7 @@
 //
 
 #import "TARegistViewController.h"
+#import "TAMenuViewController.h"
 
 @interface TARegistViewController ()
 
@@ -34,5 +35,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(IBAction)registbuttonPressed:(id)sender;
+{
+    TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
+    [self.navigationController pushViewController:menuView animated:true];
+}
 @end

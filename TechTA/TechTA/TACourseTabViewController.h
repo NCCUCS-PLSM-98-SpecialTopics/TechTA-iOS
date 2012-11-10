@@ -1,5 +1,5 @@
 //
-//  TALoginViewController.h
+//  TACourseTabViewController.h
 //  TechTA
 //
 //  Created by Shih Sunnia on 12/11/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TALoginViewController : UIViewController
+@interface TACourseTabViewController : UIViewController
 
 @end

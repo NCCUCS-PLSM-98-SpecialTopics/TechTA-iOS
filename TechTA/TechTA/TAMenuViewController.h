@@ -18,6 +18,8 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+
 
 
 @end

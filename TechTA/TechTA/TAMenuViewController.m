@@ -7,6 +7,10 @@
 //
 
 #import "TAMenuViewController.h"
+#import "TACourseTabViewController.h"
+#import "TAQAViewController.h"
+#import "TAASKViewController.h"
+#import "TAPollViewController.h"
 
 @interface TAMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -16,6 +20,7 @@
 @implementation TAMenuViewController
 
 @synthesize menuTableView=_menuTableView;
+@synthesize tabBarController=_tabBarController;
 
 
 
@@ -99,7 +104,12 @@
     switch (indexPath.row) {
         case 0:{
             TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
-            [self.navigationController pushViewController:qaView animated:YES];
+            TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
+            TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
+            
+            _tabBarController = [[UITabBarController alloc]init];
+            _tabBarController.viewControllers =[NSArray arrayWithObjects:qaView,askView,pollView, nil];
+            [self.navigationController pushViewController:_tabBarController animated:YES];
             [[self navigationController] setNavigationBarHidden:NO animated:NO];
             break;
         }

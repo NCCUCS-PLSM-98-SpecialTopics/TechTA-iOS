@@ -10,4 +10,6 @@
 
 @interface TARegistViewController : UIViewController
 
+-(IBAction)registbuttonPressed:(id)sender;
+
 @end
