@@ -17,6 +17,8 @@
 
 @synthesize menuTableView=_menuTableView;
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -98,16 +100,19 @@
         case 0:{
             TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
             [self.navigationController pushViewController:qaView animated:YES];
+            [[self navigationController] setNavigationBarHidden:NO animated:NO];
             break;
         }
         case 1:{
             TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
             [self.navigationController pushViewController:askView animated:YES];
+            [[self navigationController] setNavigationBarHidden:NO animated:NO];
         }
             break;
         case 2:{
             TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
             [self.navigationController pushViewController:pollView animated:YES];
+            [[self navigationController] setNavigationBarHidden:NO animated:NO];
         }
             break;
             
@@ -115,10 +120,13 @@
             break;
     }
 }
-
+-(void)viewDidAppear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[[self navigationController] setNavigationBarHidden:YES animated:NO];
     // Do any additional setup after loading the view from its nib.
 }
 

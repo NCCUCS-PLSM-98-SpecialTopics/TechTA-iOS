@@ -17,4 +17,6 @@
 @property (strong,nonatomic) UINavigationController* navController;
 @property (strong, nonatomic) TAViewController *viewController;
 
+-(void)startlogin;
+
 @end
