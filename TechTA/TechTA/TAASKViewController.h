@@ -11,4 +11,10 @@
 @interface TAASKViewController : UIViewController
 
 
+@property(nonatomic,strong)IBOutlet UITextView* inputQ;
+
+
+- (IBAction)onBackgroungHit:(id)sender;
+
 @end
+

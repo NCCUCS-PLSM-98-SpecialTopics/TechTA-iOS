@@ -8,11 +8,13 @@
 
 #import "TAASKViewController.h"
 
-@interface TAASKViewController ()
+@interface TAASKViewController ()<UITextViewDelegate>
 
 @end
 
 @implementation TAASKViewController
+
+@synthesize inputQ=_inputQ;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,6 +38,22 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (BOOL) textFieldShouldReturn:(UITextField *)theTextField
+{
+    NSLog(@"textFieldShouldReturn Fired :)");
+    [_inputQ resignFirstResponder];
+    //[textBoxLittle resignFirstResponder];
+    return YES;
+}
+
+-(IBAction)editingEnded:(id)sender{
+    [sender resignFirstResponder];
+}
+- (IBAction)onBackgroungHit:(id)sender {
+    
+    //取消目前是第一回應者（鍵盤消失）
+    [_inputQ resignFirstResponder];
 }
 
 @end

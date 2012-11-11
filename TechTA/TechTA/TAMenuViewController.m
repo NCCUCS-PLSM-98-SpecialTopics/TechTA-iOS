@@ -35,7 +35,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,24 +73,10 @@
     
     switch (indexPath.row) {
         case 0:
-            cell.textLabel.text = @"選擇問答";
-            cell.detailTextLabel.text = @"Select";
+            cell.textLabel.text = @"計算機概論";
+            cell.detailTextLabel.text = @"";
             break;
             
-        case 1:
-            cell.textLabel.text = @"提問題";
-            cell.detailTextLabel.text = @"Select";
-            break;
-            
-        case 2:
-            cell.textLabel.text = @"來點名";
-            cell.detailTextLabel.text = @"Select";
-            break;
-            
-        case 3:
-            cell.textLabel.text = @"Got a picture?";
-            cell.detailTextLabel.text = @"Select";
-            break;
             
         default:
             break;
