@@ -19,6 +19,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title=NSLocalizedString(@"問問題", @"問問題");
+        
+        
     }
     return self;
 }

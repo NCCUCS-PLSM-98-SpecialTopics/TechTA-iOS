@@ -7,7 +7,6 @@
 //
 
 #import "TAMenuViewController.h"
-#import "TACourseTabViewController.h"
 #import "TAQAViewController.h"
 #import "TAASKViewController.h"
 #import "TAPollViewController.h"
@@ -103,29 +102,19 @@
 {
     switch (indexPath.row) {
         case 0:{
-            TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
             TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
+            TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
+
             TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
             
             _tabBarController = [[UITabBarController alloc]init];
-            _tabBarController.viewControllers =[NSArray arrayWithObjects:qaView,askView,pollView, nil];
+            _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView,pollView, nil];
+            
             [self.navigationController pushViewController:_tabBarController animated:YES];
             [[self navigationController] setNavigationBarHidden:NO animated:NO];
             break;
         }
-        case 1:{
-            TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
-            [self.navigationController pushViewController:askView animated:YES];
-            [[self navigationController] setNavigationBarHidden:NO animated:NO];
-        }
-            break;
-        case 2:{
-            TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
-            [self.navigationController pushViewController:pollView animated:YES];
-            [[self navigationController] setNavigationBarHidden:NO animated:NO];
-        }
-            break;
-            
+                    
         default:
             break;
     }
