@@ -17,7 +17,8 @@
 		7B289B44164934A700600696 /* TAPollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B42164934A700600696 /* TAPollViewController.xib */; };
 		7B45B8E6164E4C6500638269 /* TARegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B45B8E4164E4C6500638269 /* TARegistViewController.m */; };
 		7B45B8E7164E4C6500638269 /* TARegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B45B8E5164E4C6500638269 /* TARegistViewController.xib */; };
-		7B8C5EBD164F7A42008A7B53 /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5EBC164F7A42008A7B53 /* libUnittWebSocketClient.a */; };
+		7B8C5ED2164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */; };
+		7B8C5ED4164F82E2008A7B53 /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */; };
 		7BBDA3511647B6D8007A04AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3501647B6D8007A04AE /* UIKit.framework */; };
 		7BBDA3531647B6D8007A04AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3521647B6D8007A04AE /* Foundation.framework */; };
 		7BBDA3551647B6D8007A04AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3541647B6D8007A04AE /* CoreGraphics.framework */; };
@@ -36,7 +37,6 @@
 		7BBDA3821647B6D8007A04AE /* TechTATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3811647B6D8007A04AE /* TechTATests.m */; };
 		7BBDA38C1647B73F007A04AE /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA38B1647B73F007A04AE /* CFNetwork.framework */; };
 		7BBDA38E1647B744007A04AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA38D1647B744007A04AE /* Security.framework */; };
-		7BBDA3A31647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3A21647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a */; };
 		7BBDA3AC1647ED6B007A04AE /* TAWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */; };
 		7BBDA3B41647F07E007A04AE /* TASUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3B31647F07E007A04AE /* TASUPViewController.m */; };
 /* End PBXBuildFile section */
@@ -67,8 +67,8 @@
 		7B45B8E3164E4C6500638269 /* TARegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TARegistViewController.h; sourceTree = "<group>"; };
 		7B45B8E4164E4C6500638269 /* TARegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TARegistViewController.m; sourceTree = "<group>"; };
 		7B45B8E5164E4C6500638269 /* TARegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TARegistViewController.xib; sourceTree = "<group>"; };
-		7B8C5EBC164F7A42008A7B53 /* libUnittWebSocketClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUnittWebSocketClient.a; sourceTree = "<group>"; };
-		7B8C5EBE164F7A52008A7B53 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUnittWebSocketClient 23-19-17-057.a"; sourceTree = "<group>"; };
+		7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUnittWebSocketClient.a; sourceTree = "<group>"; };
 		7BBDA34C1647B6D8007A04AE /* TechTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BBDA3501647B6D8007A04AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7BBDA3521647B6D8007A04AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,7 +106,6 @@
 		7BBDA39F1647B850007A04AE /* WebSocketConnectConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketConnectConfig.h; sourceTree = "<group>"; };
 		7BBDA3A01647B850007A04AE /* WebSocketFragment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketFragment.h; sourceTree = "<group>"; };
 		7BBDA3A11647B850007A04AE /* WebSocketMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSocketMessage.h; sourceTree = "<group>"; };
-		7BBDA3A21647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUnittWebSocketClient 23-19-17-057.a"; sourceTree = "<group>"; };
 		7BBDA3AA1647ED6B007A04AE /* TAWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAWebSocket.h; sourceTree = "<group>"; };
 		7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAWebSocket.m; sourceTree = "<group>"; };
 		7BBDA3B21647F07E007A04AE /* TASUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TASUPViewController.h; sourceTree = "<group>"; };
@@ -123,8 +122,8 @@
 				7BBDA3511647B6D8007A04AE /* UIKit.framework in Frameworks */,
 				7BBDA3531647B6D8007A04AE /* Foundation.framework in Frameworks */,
 				7BBDA3551647B6D8007A04AE /* CoreGraphics.framework in Frameworks */,
-				7BBDA3A31647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */,
-				7B8C5EBD164F7A42008A7B53 /* libUnittWebSocketClient.a in Frameworks */,
+				7B8C5ED2164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */,
+				7B8C5ED4164F82E2008A7B53 /* libUnittWebSocketClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,9 +143,8 @@
 		7BBDA3411647B6D8007A04AE = {
 			isa = PBXGroup;
 			children = (
-				7B8C5EBE164F7A52008A7B53 /* CoreData.framework */,
-				7BBDA3A21647B85C007A04AE /* libUnittWebSocketClient 23-19-17-057.a */,
-				7B8C5EBC164F7A42008A7B53 /* libUnittWebSocketClient.a */,
+				7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */,
+				7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */,
 				7BBDA3941647B850007A04AE /* include */,
 				7BBDA3561647B6D8007A04AE /* TechTA */,
 				7BBDA37A1647B6D8007A04AE /* TechTATests */,
@@ -448,6 +446,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				"DEBUG_INFORMATION_FORMAT[sdk=iphoneos*]" = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -456,6 +455,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -477,6 +477,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -493,13 +494,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TechTA/TechTA-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(inherited)\"";
 				INFOPLIST_FILE = "TechTA/TechTA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
+					"/User/shihsunnia/Library/Developer/Ext/UnittWebSocketClient/bin/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"/User/shihsunnia/Library/Developer/Ext/UnittWebSocketClient/bin/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Ext/UnittWebSocketClient/bin/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Ext/UnittWebSocketClient/bin/Debug-iphonesimulator\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -511,13 +516,17 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TechTA/TechTA-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(inherited)\"";
 				INFOPLIST_FILE = "TechTA/TechTA-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				LIBRARY_SEARCH_PATHS = (
+					"/User/shihsunnia/Library/Developer/Ext/UnittWebSocketClient/bin/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
-					"/User/shihsunnia/Library/Developer/Ext/UnittWebSocketClient/bin/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Ext/UnittWebSocketClient/bin/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../../../Library/Developer/Ext/UnittWebSocketClient/bin/Debug-iphonesimulator\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
