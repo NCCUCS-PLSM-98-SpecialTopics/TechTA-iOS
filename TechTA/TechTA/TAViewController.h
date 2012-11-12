@@ -13,8 +13,12 @@
 @interface TAViewController :TASUPViewController
 
 @property(strong,nonatomic) IBOutlet UIButton* loginbutton;
+@property(nonatomic,strong)IBOutlet UITextField* AccountField;
+@property(nonatomic,strong)IBOutlet UITextField* PassFileld;
 //@property(strong,nonatomic) TAMenuViewController* menuView;
 
+
 -(IBAction)loginButtonPressed:(id)sender;
+-(IBAction)dismissTheKeyBoard:(id)sender;
 
 @end

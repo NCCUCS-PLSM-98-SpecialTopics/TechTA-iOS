@@ -17,6 +17,9 @@
 
 @implementation TAViewController
 
+@synthesize AccountField=_AccountField;
+@synthesize PassFileld=_PassFileld;
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
@@ -45,6 +48,7 @@
         };
         case 2:{
             TARegistViewController* registView=[[TARegistViewController alloc] initWithNibName:@"TARegistViewController" bundle:nil];
+            [registView setAccountPassword:_AccountField.text :_PassFileld.text];
             [self.navigationController pushViewController:registView animated:true];
             break;
         }
@@ -53,13 +57,13 @@
     }
     
     
-    /*
-    UINavigationController* navController;
-    navController=[[UINavigationController alloc]initWithRootViewController:menuView];
-    [self.view.superview addSubview:navController.view];
-    [self.view removeFromSuperview];
-     */
+    
 
+}
+
+-(IBAction)dismissTheKeyBoard:(id)sender{
+    [_AccountField resignFirstResponder];
+    [_PassFileld resignFirstResponder];
 }
 
 @end
