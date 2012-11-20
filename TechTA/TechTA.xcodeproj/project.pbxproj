@@ -19,6 +19,8 @@
 		7B45B8E7164E4C6500638269 /* TARegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B45B8E5164E4C6500638269 /* TARegistViewController.xib */; };
 		7B8C5ED2164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */; };
 		7B8C5ED4164F82E2008A7B53 /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */; };
+		7B92BA71165B2119002871D9 /* TALogTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B92BA6F165B2119002871D9 /* TALogTestViewController.m */; };
+		7B92BA72165B2119002871D9 /* TALogTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B92BA70165B2119002871D9 /* TALogTestViewController.xib */; };
 		7BBDA3511647B6D8007A04AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3501647B6D8007A04AE /* UIKit.framework */; };
 		7BBDA3531647B6D8007A04AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3521647B6D8007A04AE /* Foundation.framework */; };
 		7BBDA3551647B6D8007A04AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA3541647B6D8007A04AE /* CoreGraphics.framework */; };
@@ -39,6 +41,18 @@
 		7BBDA38E1647B744007A04AE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBDA38D1647B744007A04AE /* Security.framework */; };
 		7BBDA3AC1647ED6B007A04AE /* TAWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */; };
 		7BBDA3B41647F07E007A04AE /* TASUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBDA3B31647F07E007A04AE /* TASUPViewController.m */; };
+		7BC0F0BC165B26470077D0A8 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0A4165B26470077D0A8 /* NSObject+SBJson.m */; };
+		7BC0F0BD165B26470077D0A8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0A7165B26470077D0A8 /* SBJsonParser.m */; };
+		7BC0F0BE165B26470077D0A8 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0A9165B26470077D0A8 /* SBJsonStreamParser.m */; };
+		7BC0F0BF165B26470077D0A8 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0AB165B26470077D0A8 /* SBJsonStreamParserAccumulator.m */; };
+		7BC0F0C0165B26470077D0A8 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0AD165B26470077D0A8 /* SBJsonStreamParserAdapter.m */; };
+		7BC0F0C1165B26470077D0A8 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0AF165B26470077D0A8 /* SBJsonStreamParserState.m */; };
+		7BC0F0C2165B26470077D0A8 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0B1165B26470077D0A8 /* SBJsonStreamWriter.m */; };
+		7BC0F0C3165B26470077D0A8 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0B3165B26470077D0A8 /* SBJsonStreamWriterAccumulator.m */; };
+		7BC0F0C4165B26470077D0A8 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0B5165B26470077D0A8 /* SBJsonStreamWriterState.m */; };
+		7BC0F0C5165B26470077D0A8 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0B7165B26470077D0A8 /* SBJsonTokeniser.m */; };
+		7BC0F0C6165B26470077D0A8 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0B9165B26470077D0A8 /* SBJsonUTF8Stream.m */; };
+		7BC0F0C7165B26470077D0A8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC0F0BB165B26470077D0A8 /* SBJsonWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +83,9 @@
 		7B45B8E5164E4C6500638269 /* TARegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TARegistViewController.xib; sourceTree = "<group>"; };
 		7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUnittWebSocketClient 23-19-17-057.a"; sourceTree = "<group>"; };
 		7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUnittWebSocketClient.a; sourceTree = "<group>"; };
+		7B92BA6E165B2119002871D9 /* TALogTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TALogTestViewController.h; sourceTree = "<group>"; };
+		7B92BA6F165B2119002871D9 /* TALogTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TALogTestViewController.m; sourceTree = "<group>"; };
+		7B92BA70165B2119002871D9 /* TALogTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TALogTestViewController.xib; sourceTree = "<group>"; };
 		7BBDA34C1647B6D8007A04AE /* TechTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BBDA3501647B6D8007A04AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7BBDA3521647B6D8007A04AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -110,6 +127,31 @@
 		7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAWebSocket.m; sourceTree = "<group>"; };
 		7BBDA3B21647F07E007A04AE /* TASUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TASUPViewController.h; sourceTree = "<group>"; };
 		7BBDA3B31647F07E007A04AE /* TASUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TASUPViewController.m; sourceTree = "<group>"; };
+		7BC0F0A3165B26470077D0A8 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		7BC0F0A4165B26470077D0A8 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		7BC0F0A5165B26470077D0A8 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		7BC0F0A6165B26470077D0A8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		7BC0F0A7165B26470077D0A8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		7BC0F0A8165B26470077D0A8 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		7BC0F0A9165B26470077D0A8 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		7BC0F0AA165B26470077D0A8 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		7BC0F0AB165B26470077D0A8 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		7BC0F0AC165B26470077D0A8 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		7BC0F0AD165B26470077D0A8 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		7BC0F0AE165B26470077D0A8 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		7BC0F0AF165B26470077D0A8 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		7BC0F0B0165B26470077D0A8 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		7BC0F0B1165B26470077D0A8 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		7BC0F0B2165B26470077D0A8 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		7BC0F0B3165B26470077D0A8 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		7BC0F0B4165B26470077D0A8 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		7BC0F0B5165B26470077D0A8 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		7BC0F0B6165B26470077D0A8 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		7BC0F0B7165B26470077D0A8 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		7BC0F0B8165B26470077D0A8 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		7BC0F0B9165B26470077D0A8 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		7BC0F0BA165B26470077D0A8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		7BC0F0BB165B26470077D0A8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +187,7 @@
 			children = (
 				7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */,
 				7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */,
+				7BC0F0A2165B26470077D0A8 /* Classes */,
 				7BBDA3941647B850007A04AE /* include */,
 				7BBDA3561647B6D8007A04AE /* TechTA */,
 				7BBDA37A1647B6D8007A04AE /* TechTATests */,
@@ -203,6 +246,9 @@
 				7BBDA3AB1647ED6B007A04AE /* TAWebSocket.m */,
 				7BBDA3B21647F07E007A04AE /* TASUPViewController.h */,
 				7BBDA3B31647F07E007A04AE /* TASUPViewController.m */,
+				7B92BA6E165B2119002871D9 /* TALogTestViewController.h */,
+				7B92BA6F165B2119002871D9 /* TALogTestViewController.m */,
+				7B92BA70165B2119002871D9 /* TALogTestViewController.xib */,
 			);
 			path = TechTA;
 			sourceTree = "<group>";
@@ -258,6 +304,38 @@
 				7BBDA3A11647B850007A04AE /* WebSocketMessage.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		7BC0F0A2165B26470077D0A8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				7BC0F0A3165B26470077D0A8 /* NSObject+SBJson.h */,
+				7BC0F0A4165B26470077D0A8 /* NSObject+SBJson.m */,
+				7BC0F0A5165B26470077D0A8 /* SBJson.h */,
+				7BC0F0A6165B26470077D0A8 /* SBJsonParser.h */,
+				7BC0F0A7165B26470077D0A8 /* SBJsonParser.m */,
+				7BC0F0A8165B26470077D0A8 /* SBJsonStreamParser.h */,
+				7BC0F0A9165B26470077D0A8 /* SBJsonStreamParser.m */,
+				7BC0F0AA165B26470077D0A8 /* SBJsonStreamParserAccumulator.h */,
+				7BC0F0AB165B26470077D0A8 /* SBJsonStreamParserAccumulator.m */,
+				7BC0F0AC165B26470077D0A8 /* SBJsonStreamParserAdapter.h */,
+				7BC0F0AD165B26470077D0A8 /* SBJsonStreamParserAdapter.m */,
+				7BC0F0AE165B26470077D0A8 /* SBJsonStreamParserState.h */,
+				7BC0F0AF165B26470077D0A8 /* SBJsonStreamParserState.m */,
+				7BC0F0B0165B26470077D0A8 /* SBJsonStreamWriter.h */,
+				7BC0F0B1165B26470077D0A8 /* SBJsonStreamWriter.m */,
+				7BC0F0B2165B26470077D0A8 /* SBJsonStreamWriterAccumulator.h */,
+				7BC0F0B3165B26470077D0A8 /* SBJsonStreamWriterAccumulator.m */,
+				7BC0F0B4165B26470077D0A8 /* SBJsonStreamWriterState.h */,
+				7BC0F0B5165B26470077D0A8 /* SBJsonStreamWriterState.m */,
+				7BC0F0B6165B26470077D0A8 /* SBJsonTokeniser.h */,
+				7BC0F0B7165B26470077D0A8 /* SBJsonTokeniser.m */,
+				7BC0F0B8165B26470077D0A8 /* SBJsonUTF8Stream.h */,
+				7BC0F0B9165B26470077D0A8 /* SBJsonUTF8Stream.m */,
+				7BC0F0BA165B26470077D0A8 /* SBJsonWriter.h */,
+				7BC0F0BB165B26470077D0A8 /* SBJsonWriter.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +420,7 @@
 				7B289B3F1649345E00600696 /* TAASKViewController.xib in Resources */,
 				7B289B44164934A700600696 /* TAPollViewController.xib in Resources */,
 				7B45B8E7164E4C6500638269 /* TARegistViewController.xib in Resources */,
+				7B92BA72165B2119002871D9 /* TALogTestViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +465,19 @@
 				7B289B3E1649345E00600696 /* TAASKViewController.m in Sources */,
 				7B289B43164934A700600696 /* TAPollViewController.m in Sources */,
 				7B45B8E6164E4C6500638269 /* TARegistViewController.m in Sources */,
+				7B92BA71165B2119002871D9 /* TALogTestViewController.m in Sources */,
+				7BC0F0BC165B26470077D0A8 /* NSObject+SBJson.m in Sources */,
+				7BC0F0BD165B26470077D0A8 /* SBJsonParser.m in Sources */,
+				7BC0F0BE165B26470077D0A8 /* SBJsonStreamParser.m in Sources */,
+				7BC0F0BF165B26470077D0A8 /* SBJsonStreamParserAccumulator.m in Sources */,
+				7BC0F0C0165B26470077D0A8 /* SBJsonStreamParserAdapter.m in Sources */,
+				7BC0F0C1165B26470077D0A8 /* SBJsonStreamParserState.m in Sources */,
+				7BC0F0C2165B26470077D0A8 /* SBJsonStreamWriter.m in Sources */,
+				7BC0F0C3165B26470077D0A8 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				7BC0F0C4165B26470077D0A8 /* SBJsonStreamWriterState.m in Sources */,
+				7BC0F0C5165B26470077D0A8 /* SBJsonTokeniser.m in Sources */,
+				7BC0F0C6165B26470077D0A8 /* SBJsonUTF8Stream.m in Sources */,
+				7BC0F0C7165B26470077D0A8 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

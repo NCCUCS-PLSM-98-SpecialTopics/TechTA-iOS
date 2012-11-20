@@ -10,6 +10,8 @@
 #import "TAQAViewController.h"
 #import "TAASKViewController.h"
 #import "TAPollViewController.h"
+#import "TAViewController.h"
+#import "TALogTestViewController.h"
 
 @interface TAMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -92,9 +94,10 @@
             TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
 
             TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
+            TALogTestViewController* logView=[[TALogTestViewController alloc]initWithNibName:@"TALogTestViewController" bundle:nil];
             
             _tabBarController = [[UITabBarController alloc]init];
-            _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView,pollView, nil];
+            _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView,pollView,logView, nil];
             
             [self.navigationController pushViewController:_tabBarController animated:YES];
             [[self navigationController] setNavigationBarHidden:NO animated:NO];
@@ -119,6 +122,13 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)logoutButtonPressed:(id)sender
+{
+    TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
+    [self.navigationController pushViewController:loginView animated:NO];
+    
 }
 
 @end

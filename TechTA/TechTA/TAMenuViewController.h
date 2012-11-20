@@ -20,6 +20,8 @@
 
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
+-(IBAction)logoutButtonPressed:(id)sender;
+
 
 
 @end

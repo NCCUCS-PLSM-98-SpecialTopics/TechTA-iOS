@@ -13,11 +13,14 @@
 @interface TAWebSocket : NSObject<WebSocketDelegate>
 {
 @private WebSocket* ws;
+    UIViewController * parent;
 }
 
 @property (nonatomic, readonly) WebSocket* ws;
 @property (nonatomic, strong) UIViewController* parent;
 
 
+- (void) startTAWebSocket:(UIViewController *)parent;
+- (void) sendMessage :(NSString*) aMessage;
 
 @end

@@ -10,7 +10,21 @@
 
 @implementation TAWebSocket
 
-@synthesize ws=_ws;
+@synthesize ws;
+@synthesize parent;
+
+- (void) startTAWebSocket:(UIViewController *)parent
+{
+    self.parent = parent;
+    NSLog(@"Socket is opening");
+    
+    [self.ws open];
+    
+    //[self.ws sendText:@"Blue"];
+    
+    //continue processing other stuff
+    //...
+}
 
 #pragma mark Lifecycle
 - (id)init
@@ -21,14 +35,21 @@
         //make sure to use the right url, it must point to your specific web socket endpoint or the handshake will fail
         //create a connect config and set all our info here
         WebSocketConnectConfig* config = [WebSocketConnectConfig configWithURLString:@"ws://echo.websocket.org" origin:nil protocols:nil tlsSettings:nil headers:nil verifySecurityKey:YES extensions:nil ];
+        
         config.closeTimeout = 15.0;
         config.keepAlive = 15.0; //sends a ws ping every 15s to keep socket alive
         
         //open using the connect config, it will be populated with server info, such as selected protocol/etc
-        ws = [WebSocket webSocketWithConfig:config delegate:self];
+        ws = [WebSocket webSocketWithConfig:config delegate:self] ;
+
     }
     return self;
     
+}
+
+- (void) sendMessage :(NSString*) aMessage
+{
+    [self.ws sendText:aMessage];
 }
 
 
