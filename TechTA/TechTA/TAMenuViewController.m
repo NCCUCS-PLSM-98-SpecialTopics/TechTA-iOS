@@ -12,6 +12,7 @@
 #import "TAPollViewController.h"
 #import "TAViewController.h"
 #import "TALogTestViewController.h"
+#import "SBJson.h"
 
 @interface TAMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -22,6 +23,7 @@
 
 @synthesize menuTableView=_menuTableView;
 @synthesize tabBarController=_tabBarController;
+@synthesize CourseArray=_CourseArray;
 
 
 
@@ -37,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return _CourseArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,23 +75,20 @@
         cell.detailTextLabel.clipsToBounds = YES;
     }
     
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = @"計算機概論";
-            cell.detailTextLabel.text = @"";
-            break;
+
+    
+    NSMutableDictionary* course=[_CourseArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = [course valueForKey:@"name"];
+    cell.detailTextLabel.text = @"";
+
             
-            
-        default:
-            break;
-    }
+ 
+    
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.row) {
-        case 0:{
             TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
             TAQAViewController* qaView=[[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
 
@@ -101,12 +100,6 @@
             
             [self.navigationController pushViewController:_tabBarController animated:YES];
             [[self navigationController] setNavigationBarHidden:NO animated:NO];
-            break;
-        }
-                    
-        default:
-            break;
-    }
 }
 -(void)viewDidAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
@@ -114,18 +107,58 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[[self navigationController] setNavigationBarHidden:YES animated:NO];
-    // Do any additional setup after loading the view from its nib.
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //宣告一個 NSURL 並給予記憶體空間、連線位置
+    NSURL *connection = [[NSURL alloc] initWithString:@"http://140.119.164.163:8080/TechTA/api/GetCourse"];
+    //宣告要post的值
+    NSString *httpBodyString=[NSString stringWithFormat:@""];
+    //NSLog(@"httpBodyString = %@",httpBodyString);
+    //設定連線位置
+    [request setURL:connection];
+    //設定連線方式
+    [request setHTTPMethod:@"GET"];
+    //將編碼改為UTF8
+    [request setHTTPBody:[httpBodyString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //轉換為NSData傳送
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //看request出來的值
+    //NSLog(@"data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSString *data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];    //看request出來的值
+    _CourseArray=[data2 JSONValue];
+    
+    NSMutableDictionary* course=[_CourseArray objectAtIndex:0];
+    NSLog(@"key : %@",[course valueForKey:@"cid"]);
 }
 
 - (void)didReceiveMemoryWarning
 {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)logoutButtonPressed:(id)sender
 {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //宣告一個 NSURL 並給予記憶體空間、連線位置
+    NSURL *connection = [[NSURL alloc] initWithString:@"140.119.164.163:8080/TechTA/api/logout"];
+    //宣告要post的值
+    NSString *httpBodyString=[NSString stringWithFormat:@""];
+    //NSLog(@"httpBodyString = %@",httpBodyString);
+    //設定連線位置
+    [request setURL:connection];
+    //設定連線方式
+    [request setHTTPMethod:@"GET"];
+    //將編碼改為UTF8
+    [request setHTTPBody:[httpBodyString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    //轉換為NSData傳送
+    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    //看request出來的值
+    NSLog(@"data :%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+
+    
     TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
     [self.navigationController pushViewController:loginView animated:NO];
     

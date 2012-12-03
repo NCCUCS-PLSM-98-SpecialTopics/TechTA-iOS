@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *menuTableView;
 
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) NSMutableArray* CourseArray;
 
 -(IBAction)logoutButtonPressed:(id)sender;
 
