@@ -15,7 +15,7 @@
 @property(strong,nonatomic) IBOutlet UIButton* loginbutton;
 @property(nonatomic,strong)IBOutlet UITextField* AccountField;
 @property(nonatomic,strong)IBOutlet UITextField* PassFileld;
-//@property(strong,nonatomic) TAMenuViewController* menuView;
+@property(strong,nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property(nonatomic,strong) NSMutableDictionary* loginDictionary;
 

@@ -25,6 +25,8 @@
 @synthesize PassName=_PassName;
 @synthesize NameName=_NameName;
 @synthesize EmailName=_EmailName;
+@synthesize connection;
+@synthesize spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,6 +42,7 @@
     [super viewDidLoad];
     _AccountLabel.text=_AccountName;
     _EmailField.text=_EmailName;
+    [self.spinner stopAnimating];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -60,12 +63,12 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.tv:8080/TechTA/api/UpdateAccount"];
+    //NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.tv:8080/TechTA/api/UpdateAccount"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@"account=%@&password=%@&name=%@&email=%@",_AccountName,_PassName,_NameField.text,_EmailField.text];
     NSLog(@"httpBodyString = %@",httpBodyString);
     //設定連線位置
-    [request setURL:connection];
+    [request setURL:[connection URLByAppendingPathComponent:@"echTA/api/UpdateAccount"]];
     //設定連線方式
     [request setHTTPMethod:@"POST"];
     //將編碼改為UTF8
@@ -73,6 +76,7 @@
     
     //NSLog(@"%@",request);
     
+    [self.spinner startAnimating];
     //轉換為NSData傳送
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //看request出來的值
@@ -83,7 +87,13 @@
     
     
     TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
+    [menuView setConnection:connection];
     [self.navigationController pushViewController:menuView animated:true];
+}
+
+-(void) setConnection:(NSURL *)theConnection
+{
+    connection=theConnection;
 }
 
 -(IBAction)dismissTheKeyBoard:(id)sender{

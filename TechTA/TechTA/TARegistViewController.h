@@ -18,10 +18,13 @@
 @property(nonatomic,strong)NSString* PassName;
 @property(nonatomic,strong)NSString* NameName;
 @property(nonatomic,strong)NSString* EmailName;
+@property(nonatomic,strong)NSURL *connection;
+@property(strong,nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 
 -(void)setAccountPassword:(NSString*)Account:(NSString*)Password;
 -(IBAction)registbuttonPressed:(id)sender;
 -(IBAction)dismissTheKeyBoard:(id)sender;
+-(void)setConnection:(NSURL *)theConnection;
 
 @end

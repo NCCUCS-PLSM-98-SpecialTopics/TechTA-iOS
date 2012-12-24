@@ -24,14 +24,11 @@
 @synthesize menuTableView=_menuTableView;
 @synthesize tabBarController=_tabBarController;
 @synthesize CourseArray=_CourseArray;
-@synthesize testrequest;
+@synthesize connection;
 
 
 
--(void)testrequest:(NSMutableURLRequest*) testre
-{
-    testrequest=testre;
-}
+
 
 
 
@@ -117,15 +114,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    NSMutableURLRequest *request=testrequest;
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //NSMutableURLRequest *request=testrequest;
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/GetAccountInfo"];
+    //connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@""];
     //NSLog(@"httpBodyString = %@",httpBodyString);
     //設定連線位置
-    [request setURL:connection];
+    [request setURL:[connection URLByAppendingPathComponent:@"TechTA/api/GetCourse"]];
     //設定連線方式
     [request setHTTPMethod:@"GET"];
     //將編碼改為UTF8
@@ -134,33 +131,31 @@
     //轉換為NSData傳送
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //看request出來的值
-    NSLog(@"getAccount data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"getCourse data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSString *data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];    //看request出來的值
+    
+    
     _CourseArray=[data2 JSONValue];
-    
-    
     //如果登入錯誤的話
-    NSMutableDictionary* courseDic=[data2 JSONValue];
-    if ([courseDic objectForKey:@"error"]) {
+    
+    if ([_CourseArray isKindOfClass:[NSMutableArray class]]){
+
+    }
+    else {
+        if ([_CourseArray valueForKey:@"error"]) {
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
-                                                          message:[courseDic valueForKey:@"msg"]
+                                                          message:[_CourseArray valueForKey:@"msg"]
                                                          delegate:nil
                                                 cancelButtonTitle:@"OK"
                                                 otherButtonTitles:nil];
         [message show];
-
+        
         TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
         [self.navigationController pushViewController:loginView animated:NO];
     }
     
-    /*
-    NSString* sttt = [[NSString alloc]initWithFormat:@""];
-    NSLog(@"%i",[_CourseArray count]);
-    NSLog(@"%@",[_CourseArray objectAtIndex:1]);
-    if ([_CourseArray objectAtIndex:0]!=@"error") {
-        NSMutableDictionary* course=[_CourseArray objectAtIndex:0];
-        NSLog(@"key : %@",[course valueForKey:@"cid"]);
-    }*/
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -174,12 +169,12 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/logout"];
+    //NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/logout"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@""];
     //NSLog(@"httpBodyString = %@",httpBodyString);
     //設定連線位置
-    [request setURL:connection];
+    [request setURL:[connection URLByAppendingPathComponent:@"TechTA/api/Logout"]];
     //設定連線方式
     [request setHTTPMethod:@"GET"];
     //將編碼改為UTF8
@@ -194,6 +189,11 @@
     TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
     [self.navigationController pushViewController:loginView animated:NO];
     
+}
+
+-(void) setConnection:(NSURL *)theConnection
+{
+    connection=theConnection;
 }
 
 @end
