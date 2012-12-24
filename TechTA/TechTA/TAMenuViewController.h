@@ -21,8 +21,11 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) NSMutableArray* CourseArray;
 
+@property (nonatomic, retain)  NSMutableURLRequest *testrequest;
+
 -(IBAction)logoutButtonPressed:(id)sender;
 
+-(void)testrequest:(NSMutableURLRequest*) testre;
 
 
 @end

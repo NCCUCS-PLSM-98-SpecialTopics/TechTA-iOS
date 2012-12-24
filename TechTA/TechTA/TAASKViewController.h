@@ -12,9 +12,10 @@
 
 
 @property(nonatomic,strong)IBOutlet UITextView* inputQ;
+@property (nonatomic, strong) IBOutlet UITextField* questionField;
 
 
-- (IBAction)onBackgroungHit:(id)sender;
+
 
 @end
 

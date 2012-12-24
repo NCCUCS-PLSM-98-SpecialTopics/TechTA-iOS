@@ -24,6 +24,14 @@
 @synthesize menuTableView=_menuTableView;
 @synthesize tabBarController=_tabBarController;
 @synthesize CourseArray=_CourseArray;
+@synthesize testrequest;
+
+
+
+-(void)testrequest:(NSMutableURLRequest*) testre
+{
+    testrequest=testre;
+}
 
 
 
@@ -101,15 +109,18 @@
             [self.navigationController pushViewController:_tabBarController animated:YES];
             [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSMutableURLRequest *request=testrequest;
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"http://140.119.164.163:8080/TechTA/api/GetCourse"];
+    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/GetAccountInfo"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@""];
     //NSLog(@"httpBodyString = %@",httpBodyString);
@@ -123,12 +134,33 @@
     //轉換為NSData傳送
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //看request出來的值
-    //NSLog(@"data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSLog(@"getAccount data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSString *data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];    //看request出來的值
     _CourseArray=[data2 JSONValue];
     
-    NSMutableDictionary* course=[_CourseArray objectAtIndex:0];
-    NSLog(@"key : %@",[course valueForKey:@"cid"]);
+    
+    //如果登入錯誤的話
+    NSMutableDictionary* courseDic=[data2 JSONValue];
+    if ([courseDic objectForKey:@"error"]) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:[courseDic valueForKey:@"msg"]
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+
+        TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
+        [self.navigationController pushViewController:loginView animated:NO];
+    }
+    
+    /*
+    NSString* sttt = [[NSString alloc]initWithFormat:@""];
+    NSLog(@"%i",[_CourseArray count]);
+    NSLog(@"%@",[_CourseArray objectAtIndex:1]);
+    if ([_CourseArray objectAtIndex:0]!=@"error") {
+        NSMutableDictionary* course=[_CourseArray objectAtIndex:0];
+        NSLog(@"key : %@",[course valueForKey:@"cid"]);
+    }*/
 }
 
 - (void)didReceiveMemoryWarning
@@ -142,7 +174,7 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"140.119.164.163:8080/TechTA/api/logout"];
+    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/logout"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@""];
     //NSLog(@"httpBodyString = %@",httpBodyString);

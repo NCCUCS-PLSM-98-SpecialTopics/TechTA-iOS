@@ -17,6 +17,12 @@
 @property(nonatomic,strong)IBOutlet UITextField* PassFileld;
 //@property(strong,nonatomic) TAMenuViewController* menuView;
 
+@property(nonatomic,strong) NSMutableDictionary* loginDictionary;
+
+
+
+@property(nonatomic, strong)NSMutableURLRequest *request;
+
 
 -(IBAction)loginButtonPressed:(id)sender;
 -(IBAction)dismissTheKeyBoard:(id)sender;

@@ -15,6 +15,7 @@
 @implementation TAASKViewController
 
 @synthesize inputQ=_inputQ;
+@synthesize questionField=_questionField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,10 +51,10 @@
 -(IBAction)editingEnded:(id)sender{
     [sender resignFirstResponder];
 }
-- (IBAction)onBackgroungHit:(id)sender {
-    
-    //取消目前是第一回應者（鍵盤消失）
-    [_inputQ resignFirstResponder];
+
+
+-(IBAction)dismissTheKeyBoard:(id)sender{
+    [_questionField resignFirstResponder];
 }
 
 @end
