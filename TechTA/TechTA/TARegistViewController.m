@@ -89,14 +89,53 @@
     NSString *data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     NSMutableDictionary* registdiction=[data2 JSONValue];
     
-    NSString* loginresultstring = [registdiction valueForKey:@"result"];
-    NSLog(@"%@",loginresultstring);
-    switch ([loginresultstring intValue]) {
+    NSString* registresulttstring = [registdiction valueForKey:@"result"];
+    NSLog(@"registresulttstring : %@",registresulttstring);
+    switch ([registresulttstring intValue]) {
+        case 0:{
+            TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
+            [menuView setConnection:connection];
+            [self.navigationController pushViewController:menuView animated:true];
+        }
+        case 1:{
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                              message:@"Data Error."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        case 2:{
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                              message:@"This account has been used."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        case 3:{
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                              message:@"Get chatid error."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        default:{
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                              message:@"Something was wrong."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
     
-    TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
-    [menuView setConnection:connection];
-    [self.navigationController pushViewController:menuView animated:true];
+    
 }
 
 -(void) setConnection:(NSURL *)theConnection
