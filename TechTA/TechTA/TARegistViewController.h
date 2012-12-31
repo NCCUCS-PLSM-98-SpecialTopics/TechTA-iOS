@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TARegistViewController : UIViewController
+@interface TARegistViewController : UIViewController{
+    IBOutlet UISegmentedControl *roleSegmentedControl;
+}
 
 @property(nonatomic,strong)IBOutlet UILabel* AccountLabel;
 @property(nonatomic,strong)IBOutlet UILabel* PassLabel;
@@ -20,6 +22,7 @@
 @property(nonatomic,strong)NSString* EmailName;
 @property(nonatomic,strong)NSURL *connection;
 @property(strong,nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic,retain) IBOutlet UISegmentedControl *roleSegmentedControl;
 
 
 -(void)setAccountPassword:(NSString*)Account:(NSString*)Password;

@@ -46,6 +46,7 @@
 
 -(IBAction)loginButtonPressed:(id)sender
 {
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
     //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     request=[[NSMutableURLRequest alloc] init];
     //宣告一個 NSURL 並給予記憶體空間、連線位置
@@ -62,7 +63,7 @@
     
     //NSLog(@"%@",request);
     
-    [self.spinner startAnimating];
+    
     //轉換為NSData傳送
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //看request出來的值
@@ -78,7 +79,6 @@
     NSNumber* tempwsreturn=[[NSNumber alloc]initWithInt:2];
     NSString* loginresultstring = [_loginDictionary valueForKey:@"result"];
     NSLog(@"%@",loginresultstring);
-    //NSNumber* selectNumber=[[NSNumber alloc]init]
     switch ([loginresultstring intValue]) {
     //switch ([tempwsreturn intValue]) {
         case 0:{
@@ -115,5 +115,11 @@
     [_AccountField resignFirstResponder];
     [_PassFileld resignFirstResponder];
 }
+
+-(void)threadStartAnimating:(id)data
+{
+    [spinner startAnimating];
+}
+
 
 @end

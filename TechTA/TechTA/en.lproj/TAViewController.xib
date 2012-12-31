@@ -44,7 +44,7 @@
 						<string key="NSFrame">{{130, 252}, {60, 44}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="391655115"/>
+						<reference key="NSNextKeyView" ref="715829406"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="608521290">
 							<int key="NSColorSpace">3</int>
@@ -217,7 +217,7 @@
 						<reference key="IBUIFontDescription" ref="372476715"/>
 						<reference key="IBUIFont" ref="839721248"/>
 					</object>
-					<object class="IBUIActivityIndicatorView" id="391655115">
+					<object class="IBUIActivityIndicatorView" id="715829406">
 						<reference key="NSNextResponder" ref="774585933"/>
 						<int key="NSvFlags">-2147483356</int>
 						<string key="NSFrame">{{142, 317}, {37, 37}}</string>
@@ -298,7 +298,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">spinner</string>
 						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="391655115"/>
+						<reference key="destination" ref="715829406"/>
 					</object>
 					<int key="connectionID">71</int>
 				</object>
@@ -359,7 +359,7 @@
 							<reference ref="30604606"/>
 							<reference ref="981882320"/>
 							<reference ref="378043247"/>
-							<reference ref="391655115"/>
+							<reference ref="715829406"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -400,7 +400,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">70</int>
-						<reference key="object" ref="391655115"/>
+						<reference key="object" ref="715829406"/>
 						<reference key="parent" ref="774585933"/>
 					</object>
 				</array>
