@@ -17,6 +17,10 @@
 		7B289B44164934A700600696 /* TAPollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B289B42164934A700600696 /* TAPollViewController.xib */; };
 		7B45B8E6164E4C6500638269 /* TARegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B45B8E4164E4C6500638269 /* TARegistViewController.m */; };
 		7B45B8E7164E4C6500638269 /* TARegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B45B8E5164E4C6500638269 /* TARegistViewController.xib */; };
+		7B7FA0891692B1620008E6DC /* TAQAListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FA0871692B1610008E6DC /* TAQAListViewController.m */; };
+		7B7FA08A1692B1620008E6DC /* TAQAListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7FA0881692B1620008E6DC /* TAQAListViewController.xib */; };
+		7B7FA09C169530C20008E6DC /* TAClassesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B7FA09A169530C10008E6DC /* TAClassesListViewController.m */; };
+		7B7FA09D169530C20008E6DC /* TAClassesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B7FA09B169530C20008E6DC /* TAClassesListViewController.xib */; };
 		7B8C5ED2164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */; };
 		7B8C5ED4164F82E2008A7B53 /* libUnittWebSocketClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */; };
 		7B92BA71165B2119002871D9 /* TALogTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B92BA6F165B2119002871D9 /* TALogTestViewController.m */; };
@@ -81,6 +85,12 @@
 		7B45B8E3164E4C6500638269 /* TARegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TARegistViewController.h; sourceTree = "<group>"; };
 		7B45B8E4164E4C6500638269 /* TARegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TARegistViewController.m; sourceTree = "<group>"; };
 		7B45B8E5164E4C6500638269 /* TARegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TARegistViewController.xib; sourceTree = "<group>"; };
+		7B7FA0861692B1610008E6DC /* TAQAListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAQAListViewController.h; sourceTree = "<group>"; };
+		7B7FA0871692B1610008E6DC /* TAQAListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAQAListViewController.m; sourceTree = "<group>"; };
+		7B7FA0881692B1620008E6DC /* TAQAListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAQAListViewController.xib; sourceTree = "<group>"; };
+		7B7FA099169530C10008E6DC /* TAClassesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAClassesListViewController.h; sourceTree = "<group>"; };
+		7B7FA09A169530C10008E6DC /* TAClassesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAClassesListViewController.m; sourceTree = "<group>"; };
+		7B7FA09B169530C20008E6DC /* TAClassesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TAClassesListViewController.xib; sourceTree = "<group>"; };
 		7B8C5ED1164F82DC008A7B53 /* libUnittWebSocketClient 23-19-17-057.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libUnittWebSocketClient 23-19-17-057.a"; sourceTree = "<group>"; };
 		7B8C5ED3164F82E2008A7B53 /* libUnittWebSocketClient.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUnittWebSocketClient.a; sourceTree = "<group>"; };
 		7B92BA6E165B2119002871D9 /* TALogTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TALogTestViewController.h; sourceTree = "<group>"; };
@@ -232,9 +242,15 @@
 				7B289B2B1649257700600696 /* TAMenuViewController.h */,
 				7B289B2C1649257700600696 /* TAMenuViewController.m */,
 				7B289B2D1649257700600696 /* TAMenuViewController.xib */,
+				7B7FA099169530C10008E6DC /* TAClassesListViewController.h */,
+				7B7FA09A169530C10008E6DC /* TAClassesListViewController.m */,
+				7B7FA09B169530C20008E6DC /* TAClassesListViewController.xib */,
 				7B289B3B1649345E00600696 /* TAASKViewController.h */,
 				7B289B3C1649345E00600696 /* TAASKViewController.m */,
 				7B289B3D1649345E00600696 /* TAASKViewController.xib */,
+				7B7FA0861692B1610008E6DC /* TAQAListViewController.h */,
+				7B7FA0871692B1610008E6DC /* TAQAListViewController.m */,
+				7B7FA0881692B1620008E6DC /* TAQAListViewController.xib */,
 				7B289B361649342700600696 /* TAQAViewController.h */,
 				7B289B371649342700600696 /* TAQAViewController.m */,
 				7B289B381649342700600696 /* TAQAViewController.xib */,
@@ -421,6 +437,8 @@
 				7B289B44164934A700600696 /* TAPollViewController.xib in Resources */,
 				7B45B8E7164E4C6500638269 /* TARegistViewController.xib in Resources */,
 				7B92BA72165B2119002871D9 /* TALogTestViewController.xib in Resources */,
+				7B7FA08A1692B1620008E6DC /* TAQAListViewController.xib in Resources */,
+				7B7FA09D169530C20008E6DC /* TAClassesListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +496,8 @@
 				7BC0F0C5165B26470077D0A8 /* SBJsonTokeniser.m in Sources */,
 				7BC0F0C6165B26470077D0A8 /* SBJsonUTF8Stream.m in Sources */,
 				7BC0F0C7165B26470077D0A8 /* SBJsonWriter.m in Sources */,
+				7B7FA0891692B1620008E6DC /* TAQAListViewController.m in Sources */,
+				7B7FA09C169530C20008E6DC /* TAClassesListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

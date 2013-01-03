@@ -1,11 +1,12 @@
 //
-//  TAMenuViewController.m
+//  TAClassesListViewController.m
 //  TechTA
 //
-//  Created by Shih Sunnia on 12/11/6.
-//  Copyright (c) 2012年 Shih Sunnia. All rights reserved.
+//  Created by Shih Sunnia on 13/1/3.
+//  Copyright (c) 2013年 Shih Sunnia. All rights reserved.
 //
 
+#import "TAClassesListViewController.h"
 #import "TAMenuViewController.h"
 #import "TAQAListViewController.h"
 #import "TAASKViewController.h"
@@ -14,23 +15,16 @@
 #import "TALogTestViewController.h"
 #import "SBJson.h"
 
-@interface TAMenuViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface TAClassesListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
 
-
-@implementation TAMenuViewController
+@implementation TAClassesListViewController
 
 @synthesize menuTableView=_menuTableView;
 @synthesize tabBarController=_tabBarController;
-@synthesize CourseArray=_CourseArray;
+@synthesize classArray;
 @synthesize connection;
-
-
-
-
-
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,10 +35,9 @@
     return self;
 }
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _CourseArray.count;
+    return classArray.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -80,24 +73,25 @@
         cell.detailTextLabel.clipsToBounds = YES;
     }
     
-
     
-    NSMutableDictionary* course=[_CourseArray objectAtIndex:indexPath.row];
+    
+    NSMutableDictionary* course=[classArray objectAtIndex:indexPath.row];
     cell.textLabel.text = [course valueForKey:@"name"];
     cell.detailTextLabel.text = @"";
-
-            
- 
+    
+    
+    
     
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
+    TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
     askView.connection=self.connection;
     askView.userInfo=self.userInfo;
-    askView.currentCourse=[self.CourseArray objectAtIndex:indexPath.row];
+    askView.classes=[classArray objectAtIndex:indexPath.row];
+    askView.currentCourse = self.currentcourse;
     TAQAListViewController* qaView=[[TAQAListViewController alloc]initWithNibName:@"TAQAListViewController" bundle:nil];
     UINavigationController* QAnav = [[UINavigationController alloc] initWithRootViewController:qaView];
     
@@ -108,21 +102,16 @@
     _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,QAnav,pollView,logView, nil];
     
     [self.navigationController pushViewController:_tabBarController animated:YES];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];*/
-    TAClassesListViewController* classview = [[TAClassesListViewController alloc]initWithNibName:@"TAClassesListViewController" bundle:nil];
-    classview.classArray=[[self.CourseArray objectAtIndex:indexPath.row] objectForKey:@"classes"];
-    classview.connection= connection;
-    classview.currentcourse = [self.CourseArray objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:classview animated:YES];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    [self loadData];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
-
--(void)loadData{
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //NSMutableURLRequest *request=testrequest;
@@ -132,41 +121,6 @@
     NSString *httpBodyString=[NSString stringWithFormat:@""];
     //NSLog(@"httpBodyString = %@",httpBodyString);
     //設定連線位置
-    [request setURL:[connection URLByAppendingPathComponent:@"TechTA/api/GetCourse"]];
-    //設定連線方式
-    [request setHTTPMethod:@"GET"];
-    //將編碼改為UTF8
-    [request setHTTPBody:[httpBodyString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    //轉換為NSData傳送
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    //看request出來的值
-    //NSLog(@"getCourse data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    NSString *data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];    //看request出來的值
-    
-    
-    _CourseArray=[data2 JSONValue];
-    
-    //如果登入錯誤的話
-    if ([_CourseArray isKindOfClass:[NSMutableArray class]]){
-        
-    }
-    else {
-        if ([_CourseArray valueForKey:@"error"]) {
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
-                                                              message:[_CourseArray valueForKey:@"msg"]
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-            [message show];
-            
-            TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
-            [self.navigationController pushViewController:loginView animated:NO];
-        }
-        
-    }
-    
-    //取得userid
     [request setURL:[connection URLByAppendingPathComponent:@"TechTA/api/GetAccountInfo"]];
     //設定連線方式
     [request setHTTPMethod:@"GET"];
@@ -174,20 +128,11 @@
     [request setHTTPBody:[httpBodyString dataUsingEncoding:NSUTF8StringEncoding]];
     
     //轉換為NSData傳送
-    data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString* data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     //NSMutableDictionary* getuserinfo = [data2 JSONValue];
     self.userInfo=[data2 JSONValue];
-    self.userid = [[NSString alloc]initWithString:[self.userInfo valueForKey:@"chatid"]];
     //NSLog(@"getAcInfo data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    //NSLog(@"chatid data : %@",self.userid);
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self loadData];
-    
 }
 
 
@@ -220,7 +165,7 @@
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     //看request出來的值
     NSLog(@"data :%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-
+    
     
     TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
     [self.navigationController pushViewController:loginView animated:NO];

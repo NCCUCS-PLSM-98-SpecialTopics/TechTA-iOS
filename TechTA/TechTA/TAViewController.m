@@ -50,7 +50,7 @@
     //NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     request=[[NSMutableURLRequest alloc] init];
     //宣告一個 NSURL 並給予記憶體空間、連線位置
-    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.tv:8080/"];
+    NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.tv:80/"];
     //宣告要post的值
     NSString *httpBodyString=[NSString stringWithFormat:@"account=%@&password=%@",_AccountField.text,_PassFileld.text];
     NSLog(@"httpBodyString = %@",httpBodyString);
