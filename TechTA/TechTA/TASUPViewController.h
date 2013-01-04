@@ -15,5 +15,6 @@
 
 - (BOOL)ReciveMessage:(NSString*) aMessage;
     //to define what will act when receive websocket message.
+-(void)socketOpened;
 
 @end

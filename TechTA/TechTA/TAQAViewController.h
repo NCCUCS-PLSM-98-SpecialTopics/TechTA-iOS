@@ -10,4 +10,6 @@
 
 @interface TAQAViewController : UIViewController
 
+
+-(IBAction)backToList:(id)sender;
 @end

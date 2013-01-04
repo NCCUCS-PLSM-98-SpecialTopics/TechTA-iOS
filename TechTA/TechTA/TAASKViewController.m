@@ -37,6 +37,11 @@
         [ws  startTAWebSocket:self];
         self.myWS = ws;
     }
+
+}
+
+-(void)socketOpened
+{
     if(self.userInfo ==nil){
         UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                           message:@"Something was Wrong."
@@ -54,9 +59,8 @@
         NSString *inputText = [inputDict JSONRepresentation];
         [self.myWS sendMessage:inputText];
         NSLog(@"%@",inputText);
-
+        
     }
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -83,19 +87,22 @@
 
 - (IBAction)buttonSendClickHandler:(id)sender
 {
-    NSLog(@"classes : %@\nCourse : %@",[self.classes JSONRepresentation],[self.currentCourse JSONRepresentation]);
+    //NSLog(@"classes : %@\nCourse : %@",[self.classes JSONRepresentation],[self.currentCourse JSONRepresentation]);
     if([[self.classes valueForKey:@"active"] isEqual:@"1"]){
-        NSString* roomid=[self.userInfo valueForKey:@"roomid"];
+        //NSString* roomid=[self.userInfo valueForKey:@"roomid"];
         NSArray* ks =[[NSArray alloc]initWithObjects:@"type",@"clid",@"account",@"role",@"content", nil];
         NSArray* obs = [[NSArray alloc] initWithObjects:@"message",[self.classes valueForKey:@"clid"],[self.userInfo valueForKey:@"account"],[self.userInfo valueForKey:@"role"],self.questionField.text, nil];
         NSMutableDictionary* megdict=[[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
         NSString* message = [megdict JSONRepresentation];
+        
         NSLog(@"message : %@ \n roomid = %@",message, [self.classes valueForKey:@"roomid"]);
+        
         ks =[[NSArray alloc]initWithObjects:@"command",@"room",@"msg", nil];
         obs = [[NSArray alloc] initWithObjects:@"room",[self.classes valueForKey:@"roomid"],message, nil];
         NSMutableDictionary* inputDict = [[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
         NSString *inputText = [inputDict JSONRepresentation];
         [self.myWS sendMessage:inputText];
+        NSLog(@"input : %@",inputText);
         self.inputQ.text = [NSString stringWithFormat:@"me :%@\n%@",self.questionField.text,self.inputQ.text];
     }
     else

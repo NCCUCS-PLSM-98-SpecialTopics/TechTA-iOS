@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    //navigationController] setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,4 +39,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)backToList:(id)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

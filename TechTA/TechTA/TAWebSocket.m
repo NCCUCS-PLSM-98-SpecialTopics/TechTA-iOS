@@ -34,7 +34,7 @@
     {
         //make sure to use the right url, it must point to your specific web socket endpoint or the handshake will fail
         //create a connect config and set all our info here
-        WebSocketConnectConfig* config = [WebSocketConnectConfig configWithURLString:@"ws://140.119.164.155:8001/websocket/polling" origin:nil protocols:nil tlsSettings:nil headers:nil verifySecurityKey:YES extensions:nil ];
+        WebSocketConnectConfig* config = [WebSocketConnectConfig configWithURLString:@"ws://dream.cs.nccu.edu.tw:8001/websocket/polling" origin:nil protocols:nil tlsSettings:nil headers:nil verifySecurityKey:YES extensions:nil ];
         
         config.closeTimeout = 15.0;
         config.keepAlive = 15.0; //sends a ws ping every 15s to keep socket alive
@@ -60,6 +60,9 @@
 - (void) didOpen
 {
     NSLog(@"Socket is open for business.");
+    TASUPViewController* a =(TASUPViewController*)self.parent;
+    [a socketOpened];
+    
 }
 
 /**
@@ -67,7 +70,7 @@
  **/
 - (void) didClose:(NSUInteger) aStatusCode message:(NSString*) aMessage error:(NSError*) aError
 {
-    NSLog(@"WebSocket closed.");
+    NSLog(@"WebSocket closed. %@",aMessage);
 }
 
 /**
@@ -76,7 +79,7 @@
  **/
 - (void) didReceiveError:(NSError*) aError
 {
-    NSLog(@"Oops. An error occurred.");
+    NSLog(@"Oops. An error occurred. %@",[aError localizedDescription]);
 }
 
 /**

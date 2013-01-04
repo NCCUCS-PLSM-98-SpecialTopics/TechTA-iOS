@@ -102,11 +102,11 @@
     _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,QAnav,pollView,logView, nil];
     
     [self.navigationController pushViewController:_tabBarController animated:YES];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidLoad
