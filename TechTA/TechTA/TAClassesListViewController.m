@@ -146,32 +146,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)logoutButtonPressed:(id)sender
-{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    //宣告一個 NSURL 並給予記憶體空間、連線位置
-    //NSURL *connection = [[NSURL alloc] initWithString:@"http://jackliit.dyndns.info:8080/TechTA/api/logout"];
-    //宣告要post的值
-    NSString *httpBodyString=[NSString stringWithFormat:@""];
-    //NSLog(@"httpBodyString = %@",httpBodyString);
-    //設定連線位置
-    [request setURL:[connection URLByAppendingPathComponent:@"TechTA/api/Logout"]];
-    //設定連線方式
-    [request setHTTPMethod:@"GET"];
-    //將編碼改為UTF8
-    [request setHTTPBody:[httpBodyString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    //轉換為NSData傳送
-    NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    //看request出來的值
-    NSLog(@"data :%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    
-    TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
-    [self.navigationController pushViewController:loginView animated:NO];
-    
-}
-
 -(void) setConnection:(NSURL *)theConnection
 {
     connection=theConnection;

@@ -94,21 +94,6 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
-    askView.connection=self.connection;
-    askView.userInfo=self.userInfo;
-    askView.currentCourse=[self.CourseArray objectAtIndex:indexPath.row];
-    TAQAListViewController* qaView=[[TAQAListViewController alloc]initWithNibName:@"TAQAListViewController" bundle:nil];
-    UINavigationController* QAnav = [[UINavigationController alloc] initWithRootViewController:qaView];
-    
-    TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
-    TALogTestViewController* logView=[[TALogTestViewController alloc]initWithNibName:@"TALogTestViewController" bundle:nil];
-    
-    _tabBarController = [[UITabBarController alloc]init];
-    _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,QAnav,pollView,logView, nil];
-    
-    [self.navigationController pushViewController:_tabBarController animated:YES];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];*/
     TAClassesListViewController* classview = [[TAClassesListViewController alloc]initWithNibName:@"TAClassesListViewController" bundle:nil];
     classview.classArray=[[self.CourseArray objectAtIndex:indexPath.row] objectForKey:@"classes"];
     classview.connection= connection;
@@ -148,22 +133,31 @@
     _CourseArray=[data2 JSONValue];
     
     //如果登入錯誤的話
-    if ([_CourseArray isKindOfClass:[NSMutableArray class]]){
-        
-    }
-    else {
-        if ([_CourseArray valueForKey:@"error"]) {
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
-                                                              message:[_CourseArray valueForKey:@"msg"]
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-            [message show];
+    if (_CourseArray==nil) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:@"Server may down."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }else{
+        if ([_CourseArray isKindOfClass:[NSMutableArray class]]){
             
-            TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
-            [self.navigationController pushViewController:loginView animated:NO];
         }
-        
+        else {
+            if ([_CourseArray valueForKey:@"error"]) {
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                                  message:[_CourseArray valueForKey:@"msg"]
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+                [message show];
+                
+                TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
+                [self.navigationController pushViewController:loginView animated:NO];
+            }
+            
+        }
     }
     
     //取得userid
@@ -176,11 +170,8 @@
     //轉換為NSData傳送
     data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    //NSMutableDictionary* getuserinfo = [data2 JSONValue];
     self.userInfo=[data2 JSONValue];
     self.userid = [[NSString alloc]initWithString:[self.userInfo valueForKey:@"chatid"]];
-    //NSLog(@"getAcInfo data : %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    //NSLog(@"chatid data : %@",self.userid);
 }
 
 - (void)viewDidLoad

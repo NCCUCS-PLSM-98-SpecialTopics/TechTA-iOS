@@ -75,38 +75,44 @@
     
     
     
-    
-    NSNumber* tempwsreturn=[[NSNumber alloc]initWithInt:2];
-    NSString* loginresultstring = [_loginDictionary valueForKey:@"result"];
-    NSLog(@"%@",loginresultstring);
-    switch ([loginresultstring intValue]) {
-    //switch ([tempwsreturn intValue]) {
-        case 0:{
-            TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
-            [menuView setConnection:connection];
-            [self.navigationController pushViewController:menuView animated:true];
-            break;
+    if (_loginDictionary == nil) {
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:@"Server may down."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+    }else{
+        NSString* loginresultstring = [_loginDictionary valueForKey:@"result"];
+        NSLog(@"%@",loginresultstring);
+        switch ([loginresultstring intValue]) {
+            case 0:{
+                TAMenuViewController* menuView =[[TAMenuViewController alloc] initWithNibName:@"TAMenuViewController" bundle:nil];
+                [menuView setConnection:connection];
+                [self.navigationController pushViewController:menuView animated:true];
+                break;
+            }
+            case 1:{
+                UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                                  message:@"Wrong account or password."
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles:nil];
+                [message show];
+            }
+            case 2:{
+                TARegistViewController* registView=[[TARegistViewController alloc] initWithNibName:@"TARegistViewController" bundle:nil];
+                [registView setAccountPassword:_AccountField.text :_PassFileld.text];
+                [registView setConnection:connection];
+                [self.navigationController pushViewController:registView animated:true];
+                break;
+            }
+            default:
+                break;
         }
-        case 1:{
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
-                                                              message:@"Wrong account or password."
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles:nil];
-            [message show];
-        }
-        case 2:{
-            TARegistViewController* registView=[[TARegistViewController alloc] initWithNibName:@"TARegistViewController" bundle:nil];
-            [registView setAccountPassword:_AccountField.text :_PassFileld.text];
-            [registView setConnection:connection];
-            [self.navigationController pushViewController:registView animated:true];
-            break;
-        }
-        default:
-            break;
     }
     
-    
+    [spinner stopAnimating];
     
 
 }

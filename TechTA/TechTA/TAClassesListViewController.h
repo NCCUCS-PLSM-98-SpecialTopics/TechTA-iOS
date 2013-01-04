@@ -26,7 +26,6 @@
 
 
 
--(IBAction)logoutButtonPressed:(id)sender;
 -(void) setConnection:(NSURL *)theConnection;
 
 
