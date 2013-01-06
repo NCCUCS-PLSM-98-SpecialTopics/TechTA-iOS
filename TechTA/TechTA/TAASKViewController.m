@@ -23,6 +23,11 @@
     if (self) {
         // Custom initialization
         self.title=NSLocalizedString(@"問問題", @"問問題");
+        if(self.myWS == nil){
+            TAWebSocket *ws =  [[TAWebSocket alloc] init];
+            [ws  startTAWebSocket:self];
+            self.myWS = ws;
+        }
         
         
     }
@@ -32,11 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(self.myWS == nil){
-        TAWebSocket *ws =  [[TAWebSocket alloc] init];
-        [ws  startTAWebSocket:self];
-        self.myWS = ws;
-    }
+    
 
 }
 
@@ -102,7 +103,7 @@
         NSMutableDictionary* inputDict = [[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
         NSString *inputText = [inputDict JSONRepresentation];
         [self.myWS sendMessage:inputText];
-        NSLog(@"input : %@",inputText);
+        //NSLog(@"input : %@",inputText);
         self.inputQ.text = [NSString stringWithFormat:@"me :%@\n%@",self.questionField.text,self.inputQ.text];
     }
     else
@@ -114,7 +115,16 @@
 
 - (BOOL)ReciveMessage:(NSString*) aMessage
 {
-    self.inputQ.text = [NSString stringWithFormat:@"Receive:%@\n%@",aMessage,self.inputQ.text];
+    NSMutableDictionary* msgdict = [aMessage JSONValue];
+    if (msgdict!=nil) {
+        if([[msgdict valueForKey:@"message"] isEqualToString:@"Message"]){
+            NSString* datastr = [msgdict objectForKey:@"data"];
+            NSMutableDictionary* datadict = [datastr JSONValue];
+            if ([[datadict valueForKey:@"type"]isEqualToString:@"message"]) {
+                self.inputQ.text = [NSString stringWithFormat:@"%@:%@\n%@",[datadict valueForKey:@"account"],[datadict valueForKey:@"content"],self.inputQ.text];
+            }
+        }
+    }
     return true;
 }
 

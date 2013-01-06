@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TAQAListViewController : UIViewController
+@interface TAQAListViewController : UIViewController{
+    
+}
+
+@property(retain, nonatomic) IBOutlet UITableView* vc;
+@property(retain, nonatomic) NSMutableDictionary* qaListDict;
 
 @end

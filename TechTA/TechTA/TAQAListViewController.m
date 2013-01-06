@@ -20,9 +20,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.qaListDict = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"testobj",@"test", nil];
     }
     return self;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 1;
@@ -30,7 +32,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return [self.qaListDict count];
 }
 
 
@@ -53,6 +55,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.qaListDict setValue:[NSString stringWithFormat:@"test%i",[self.qaListDict count]] forKey:[NSString stringWithFormat:@"test%i",[self.qaListDict count]]];
+    
     TAQAViewController* childView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
     [self.navigationController pushViewController:childView animated:YES];
 }
@@ -60,6 +64,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [self.vc reloadData];
 }
 
 - (void)viewDidLoad
