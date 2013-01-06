@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSMutableDictionary* QADict;
 @property (strong, nonatomic) NSMutableDictionary* userInfo;
 @property (strong, nonatomic) NSString* chatid;
+@property (strong, nonatomic) NSMutableDictionary* classes;
 
 
 

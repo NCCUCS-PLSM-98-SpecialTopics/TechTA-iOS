@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.qaListDict = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"testobj",@"test", nil];
+        //self.qaListDict = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"testobj",@"test", nil];
         self.qaListArray = [[NSMutableArray alloc]init];
         if(self.myWS == nil){
             TAWebSocket *ws =  [[TAWebSocket alloc] init];
@@ -55,6 +55,7 @@
     }
     
     cell.textLabel.text=[NSString stringWithString:@"test"];
+    cell.textLabel.text=[[self.qaListArray objectAtIndex:indexPath.row] valueForKey:@"question"];
     return cell;
 }
 
@@ -67,6 +68,7 @@
     TAQAViewController* childView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
     childView.QADict=[self.qaListArray objectAtIndex:indexPath.row];
     childView.userInfo=self.userInfo;
+    childView.classes=self.classes;
     [self.navigationController pushViewController:childView animated:YES];
 }
 
@@ -121,13 +123,19 @@
             if ([[datadict valueForKey:@"type"]isEqualToString:@"quiz"]) {
                 [self.qaListArray addObject:datadict];
                 //[self.qaListDict setObject:datadict forKey:[datadict valueForKey:@"question"]];
+            }else if ([[datadict valueForKey:@"type"]isEqualToString:@"quizclose"]){
+                for (int i=0; i<[self.qaListArray count]; i++) {
+                    if ([[[self.qaListArray objectAtIndex:i] valueForKey:@"qid"] isEqual:[datadict valueForKey:@"qid"]]&&[[[self.qaListArray objectAtIndex:i] valueForKey:@"clid"] isEqual:[datadict valueForKey:@"clid"]]) {
+                        [self.qaListArray removeObjectAtIndex:i];
+                    }
+                }
             }
         }
     }
     [self.qaListTableView reloadData];
 }
 
--(void)reloadQAList
+-(IBAction)reloadQAList
 {
     [self.qaListTableView reloadData];
 }

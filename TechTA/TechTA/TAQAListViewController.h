@@ -14,16 +14,17 @@
 }
 
 @property(retain, nonatomic) IBOutlet UITableView* qaListTableView;
-@property(retain, nonatomic) NSMutableDictionary* qaListDict;
+//@property(retain, nonatomic) NSMutableDictionary* qaListDict;
 @property(retain, nonatomic) NSMutableArray* qaListArray;
 @property (strong, nonatomic) NSMutableDictionary* userInfo;
 @property (strong, nonatomic) NSString* chatid;
 @property (strong, nonatomic) TAWebSocket* myWS ;
+@property (strong, nonatomic) NSMutableDictionary* classes;
 
 
 - (BOOL)ReciveMessage:(NSString*) aMessage;
 -(void)socketOpened;
--(void)reloadQAList;
+-(IBAction)reloadQAList;
 
 
 @end

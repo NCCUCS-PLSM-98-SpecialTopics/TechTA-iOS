@@ -9,6 +9,7 @@
 #import "TAClassesListViewController.h"
 #import "TAMenuViewController.h"
 #import "TAQAListViewController.h"
+#import "TAQAViewController.h"
 #import "TAASKViewController.h"
 #import "TAPollViewController.h"
 #import "TAViewController.h"
@@ -93,15 +94,22 @@
     askView.classes=[classArray objectAtIndex:indexPath.row];
     askView.currentCourse = self.currentcourse;
     
-    TAQAListViewController* qaView=[[TAQAListViewController alloc]initWithNibName:@"TAQAListViewController" bundle:nil];
+    /*
+     TAQAListViewController* qaView=[[TAQAListViewController alloc]initWithNibName:@"TAQAListViewController" bundle:nil];
     qaView.userInfo=self.userInfo;
+    qaView.classes=[classArray objectAtIndex:indexPath.row];
     UINavigationController* QAnav = [[UINavigationController alloc] initWithRootViewController:qaView];
+     */
+    TAQAViewController* qaView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
+    qaView.userInfo=self.userInfo;
+    qaView.classes=[classArray objectAtIndex:indexPath.row];
+    
     
     TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
     TALogTestViewController* logView=[[TALogTestViewController alloc]initWithNibName:@"TALogTestViewController" bundle:nil];
     
     _tabBarController = [[UITabBarController alloc]init];
-    _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,QAnav,pollView,logView, nil];
+    _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView,pollView,logView, nil];
     
     [self.navigationController pushViewController:_tabBarController animated:YES];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];

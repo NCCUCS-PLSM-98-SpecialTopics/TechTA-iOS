@@ -212,9 +212,8 @@
     //看request出來的值
     NSLog(@"data :%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 
-    
-    TAViewController* loginView =[[TAViewController alloc]initWithNibName:@"TAViewController" bundle:nil];
-    [self.navigationController pushViewController:loginView animated:NO];
+
+    [self.navigationController popToRootViewControllerAnimated:YES];
     
 }
 

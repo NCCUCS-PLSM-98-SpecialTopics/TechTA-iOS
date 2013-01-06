@@ -23,11 +23,13 @@
     if (self) {
         // Custom initialization
         self.title=NSLocalizedString(@"問問題", @"問問題");
-        if(self.myWS == nil){
+        /*
+         if(self.myWS == nil){
             TAWebSocket *ws =  [[TAWebSocket alloc] init];
             [ws  startTAWebSocket:self];
             self.myWS = ws;
         }
+         */
         
         
     }
@@ -37,6 +39,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //設定連線位置
+    NSString* test = [[NSString alloc]initWithFormat:@"http://jackliit.dyndns.tv:80/TechTA/api/GetMessageByClass?clid=%@",[self.classes valueForKey:@"clid"]];
+    [request setURL:[NSURL URLWithString:test]];
+    //設定連線方式
+    [request setHTTPMethod:@"GET"];
+    
+    //轉換為NSData傳送
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString* data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",data2);
+    //NSMutableDictionary* getuserinfo = [data2 JSONValue];
+    NSMutableArray* logarr=[data2 JSONValue];
+    for (int i=0;i<[logarr count] ; i++) {
+        self.inputQ.text = [NSString stringWithFormat:@"%@ : %@\n%@",[[logarr objectAtIndex:i] valueForKey:@"account"],[[logarr objectAtIndex:i] valueForKey:@"content"],self.inputQ.text];
+    }
     
 
 }
