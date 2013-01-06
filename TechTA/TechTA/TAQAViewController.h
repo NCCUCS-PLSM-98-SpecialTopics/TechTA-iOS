@@ -15,7 +15,11 @@
 @property (nonatomic,retain) IBOutlet UIButton* bButton;
 @property (nonatomic,retain) IBOutlet UIButton* cButton;
 @property (nonatomic,retain) IBOutlet UIButton* dButton;
+@property (nonatomic,retain) IBOutlet UILabel* titleLabel;
 @property (strong, nonatomic) TAWebSocket* myWS ;
+@property (strong, nonatomic) NSMutableDictionary* QADict;
+@property (strong, nonatomic) NSMutableDictionary* userInfo;
+@property (strong, nonatomic) NSString* chatid;
 
 
 
@@ -25,6 +29,7 @@
 - (void)sendRequests:(NSString*) aMessage;
 - (void)sendAnswer:(NSString*) aMessage;
 - (BOOL)ReciveMessage:(NSString*) aMessage;
+-(void)socketOpened;
 
 -(IBAction)abuttonHandler:(id)sender;
 -(IBAction)bbuttonHandler:(id)sender;

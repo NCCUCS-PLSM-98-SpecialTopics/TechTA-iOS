@@ -26,6 +26,7 @@
 
 - (void)sendRequests;
 - (BOOL)ReciveMessage:(NSString*) aMessage;
+-(void)socketOpened;
 
 
 

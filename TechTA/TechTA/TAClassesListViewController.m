@@ -92,7 +92,9 @@
     askView.userInfo=self.userInfo;
     askView.classes=[classArray objectAtIndex:indexPath.row];
     askView.currentCourse = self.currentcourse;
+    
     TAQAListViewController* qaView=[[TAQAListViewController alloc]initWithNibName:@"TAQAListViewController" bundle:nil];
+    qaView.userInfo=self.userInfo;
     UINavigationController* QAnav = [[UINavigationController alloc] initWithRootViewController:qaView];
     
     TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];

@@ -36,6 +36,14 @@
     // Do any additional setup after loading the view from its nib.
     //navigationController] setNavigationBarHidden:YES animated:YES];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.titleLabel.text=[self.QADict valueForKey:@"question"];
+    self.aButton.titleLabel.text = [self.QADict valueForKey:@"A"];
+    self.bButton.titleLabel.text = [self.QADict valueForKey:@"B"];
+    self.cButton.titleLabel.text = [self.QADict valueForKey:@"C"];
+    self.dButton.titleLabel.text = [self.QADict valueForKey:@"D"];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -54,18 +62,37 @@
 }
 - (void)sendAnswer:(NSString*) aMessage
 {
-    
+    NSArray* ks =[[NSArray alloc]initWithObjects:@"type",@"clid",@"qid",@"account",@"content", nil];
+    NSArray* obs = [[NSArray alloc] initWithObjects:@"answer",[self.QADict valueForKey:@"clid"],[self.QADict valueForKey:@"qid"],[self.userInfo valueForKey:@"account"],aMessage ,nil];
+    NSMutableDictionary* megdict=[[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
+    NSString* message = [megdict JSONRepresentation];
 }
 - (BOOL)ReciveMessage:(NSString*) aMessage
 {
-    NSMutableDictionary* msgdict = [aMessage JSONValue];
-    if (msgdict!=nil) {
-        if([[msgdict valueForKey:@"message"] isEqualToString:@"Message"]){
-            NSString* datastr = [msgdict objectForKey:@"data"];
-            NSMutableDictionary* datadict = [datastr JSONValue];
-        }
-    }
     
+    
+}
+-(void)socketOpened
+{
+    if(self.userInfo ==nil){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:@"Something was Wrong."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        self.chatid = [self.userInfo valueForKey:@"chatid"];
+        NSArray* obs = [[NSArray alloc] initWithObjects:@"login",self.chatid, nil];
+        NSArray* ks =[[NSArray alloc]initWithObjects:@"command",@"user", nil];
+        NSMutableDictionary* inputDict = [[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
+        NSString *inputText = [inputDict JSONRepresentation];
+        [self.myWS sendMessage:inputText];
+        NSLog(@"%@",inputText);
+        
+    }
 }
 
 -(IBAction)abuttonHandler:(id)sender

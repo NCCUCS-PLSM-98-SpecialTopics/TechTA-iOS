@@ -8,6 +8,7 @@
 
 #import "TAQAListViewController.h"
 #import "TAQAViewController.h"
+#import "SBJson.h"
 
 @interface TAQAListViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -21,6 +22,12 @@
     if (self) {
         // Custom initialization
         self.qaListDict = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"testobj",@"test", nil];
+        self.qaListArray = [[NSMutableArray alloc]init];
+        if(self.myWS == nil){
+            TAWebSocket *ws =  [[TAWebSocket alloc] init];
+            [ws  startTAWebSocket:self];
+            self.myWS = ws;
+        }
     }
     return self;
 }
@@ -32,7 +39,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.qaListDict count];
+    return [self.qaListArray count];
 }
 
 
@@ -55,16 +62,18 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self.qaListDict setValue:[NSString stringWithFormat:@"test%i",[self.qaListDict count]] forKey:[NSString stringWithFormat:@"test%i",[self.qaListDict count]]];
+    //[self.qaListDict setValue:[NSString stringWithFormat:@"test%i",[self.qaListDict count]] forKey:[NSString stringWithFormat:@"test%i",[self.qaListDict count]]];
     
     TAQAViewController* childView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
+    childView.QADict=[self.qaListArray objectAtIndex:indexPath.row];
+    childView.userInfo=self.userInfo;
     [self.navigationController pushViewController:childView animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    [self.vc reloadData];
+    [self.qaListTableView reloadData];
 }
 
 - (void)viewDidLoad
@@ -79,6 +88,48 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)socketOpened
+{
+    if(self.userInfo ==nil){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:@"Something was Wrong."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        self.chatid = [self.userInfo valueForKey:@"chatid"];
+        NSArray* obs = [[NSArray alloc] initWithObjects:@"login",self.chatid, nil];
+        NSArray* ks =[[NSArray alloc]initWithObjects:@"command",@"user", nil];
+        NSMutableDictionary* inputDict = [[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
+        NSString *inputText = [inputDict JSONRepresentation];
+        [self.myWS sendMessage:inputText];
+        NSLog(@"%@",inputText);
+        
+    }
+}
 
+- (BOOL)ReciveMessage:(NSString*) aMessage
+{
+    NSMutableDictionary* msgdict = [aMessage JSONValue];
+    if (msgdict!=nil) {
+        if([[msgdict valueForKey:@"message"] isEqualToString:@"Message"]){
+            NSString* datastr = [msgdict objectForKey:@"data"];
+            NSMutableDictionary* datadict = [datastr JSONValue];
+            if ([[datadict valueForKey:@"type"]isEqualToString:@"quiz"]) {
+                [self.qaListArray addObject:datadict];
+                //[self.qaListDict setObject:datadict forKey:[datadict valueForKey:@"question"]];
+            }
+        }
+    }
+    [self.qaListTableView reloadData];
+}
+
+-(void)reloadQAList
+{
+    [self.qaListTableView reloadData];
+}
 
 @end
