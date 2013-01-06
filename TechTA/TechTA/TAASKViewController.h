@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString* chatid;
 @property (strong, nonatomic) NSMutableDictionary* classes;
 @property(nonatomic,strong)NSURL *connection;
+@property(nonatomic,retain) IBOutlet UIImageView* coinImageView;
 
 
 - (IBAction)buttonSendClickHandler:(id)sender;

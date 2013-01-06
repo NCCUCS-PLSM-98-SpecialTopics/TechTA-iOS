@@ -23,13 +23,13 @@
     if (self) {
         // Custom initialization
         self.title=NSLocalizedString(@"問問題", @"問問題");
-        /*
+        
          if(self.myWS == nil){
             TAWebSocket *ws =  [[TAWebSocket alloc] init];
             [ws  startTAWebSocket:self];
             self.myWS = ws;
         }
-         */
+         
         
         
     }
@@ -51,12 +51,53 @@
     //轉換為NSData傳送
     NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSString* data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",data2);
+    //NSLog(@"%@",data2);
     //NSMutableDictionary* getuserinfo = [data2 JSONValue];
     NSMutableArray* logarr=[data2 JSONValue];
     for (int i=0;i<[logarr count] ; i++) {
         self.inputQ.text = [NSString stringWithFormat:@"%@ : %@\n%@",[[logarr objectAtIndex:i] valueForKey:@"account"],[[logarr objectAtIndex:i] valueForKey:@"content"],self.inputQ.text];
     }
+    
+    
+    NSArray *images = [NSArray arrayWithObjects:
+                       [UIImage imageNamed:@"00001.png"],
+                       [UIImage imageNamed:@"00002.png"],
+                       [UIImage imageNamed:@"00003.png"],
+                       [UIImage imageNamed:@"00004.png"],
+                       [UIImage imageNamed:@"00005.png"],
+                       [UIImage imageNamed:@"00006.png"],
+                       [UIImage imageNamed:@"00007.png"],
+                       [UIImage imageNamed:@"00008.png"],
+                       [UIImage imageNamed:@"00009.png"],
+                       [UIImage imageNamed:@"00010.png"],
+                       [UIImage imageNamed:@"00011.png"],
+                       [UIImage imageNamed:@"00012.png"],
+                       [UIImage imageNamed:@"00013.png"],
+                       [UIImage imageNamed:@"00014.png"],
+                       [UIImage imageNamed:@"00015.png"],
+                       [UIImage imageNamed:@"00016.png"],
+                       [UIImage imageNamed:@"00017.png"],
+                       [UIImage imageNamed:@"00018.png"],
+                       [UIImage imageNamed:@"00019.png"],
+                       [UIImage imageNamed:@"00020.png"],
+                       [UIImage imageNamed:@"00021.png"],
+                       [UIImage imageNamed:@"00022.png"],
+                       [UIImage imageNamed:@"00023.png"],
+                       [UIImage imageNamed:@"00024.png"],
+                       [UIImage imageNamed:@"00025.png"],
+                       [UIImage imageNamed:@"00026.png"],
+                       [UIImage imageNamed:@"00027.png"],
+                       [UIImage imageNamed:@"00028.png"],
+                       [UIImage imageNamed:@"00029.png"],
+                       [UIImage imageNamed:@"00030.png"],
+                       [UIImage imageNamed:@"00031.png"],
+                       [UIImage imageNamed:@"00032.png"],
+                       [UIImage imageNamed:@"00033.png"],
+                       [UIImage imageNamed:@"00034.png"],nil];
+    self.coinImageView.animationImages=images;
+    self.coinImageView.animationDuration = 0.7;
+    self.coinImageView.animationRepeatCount = 1; // 0 = nonStop repeat
+    //[self.coinImageView startAnimating];
     
 
 }
@@ -142,6 +183,8 @@
             NSMutableDictionary* datadict = [datastr JSONValue];
             if ([[datadict valueForKey:@"type"]isEqualToString:@"message"]) {
                 self.inputQ.text = [NSString stringWithFormat:@"%@:%@\n%@",[datadict valueForKey:@"account"],[datadict valueForKey:@"content"],self.inputQ.text];
+            }else if([[datadict valueForKey:@"type"]isEqualToString:@"bonus"]){
+                [self.coinImageView startAnimating];
             }
         }
     }

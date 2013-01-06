@@ -103,13 +103,14 @@
     TAQAViewController* qaView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
     qaView.userInfo=self.userInfo;
     qaView.classes=[classArray objectAtIndex:indexPath.row];
+    qaView.connection=self.connection;
     
     
-    TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
+    /*TAPollViewController* pollView=[[TAPollViewController alloc]initWithNibName:@"TAPollViewController" bundle:nil];
     TALogTestViewController* logView=[[TALogTestViewController alloc]initWithNibName:@"TALogTestViewController" bundle:nil];
-    
+    */
     _tabBarController = [[UITabBarController alloc]init];
-    _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView,pollView,logView, nil];
+    _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView, nil];
     
     [self.navigationController pushViewController:_tabBarController animated:YES];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];

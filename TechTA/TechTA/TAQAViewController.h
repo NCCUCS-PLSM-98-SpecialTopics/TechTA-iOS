@@ -21,7 +21,7 @@
 @property (strong, nonatomic) NSMutableDictionary* userInfo;
 @property (strong, nonatomic) NSString* chatid;
 @property (strong, nonatomic) NSMutableDictionary* classes;
-
+@property(nonatomic,strong)NSURL *connection;
 
 
 

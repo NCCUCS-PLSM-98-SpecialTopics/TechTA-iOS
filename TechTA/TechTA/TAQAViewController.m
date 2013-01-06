@@ -21,11 +21,11 @@
     if (self) {
         // Custom initialization
         self.title=NSLocalizedString(@"問答", @"問答");
-        /*
+        
         TAWebSocket *ws =  [[TAWebSocket alloc] init];
         [ws  startTAWebSocket:self];
         self.myWS = ws;
-         */
+         
         
         
     }
@@ -40,7 +40,27 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-            [self refreshView];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    //設定連線位置
+    NSString* test = [[NSString alloc]initWithFormat:@"http://jackliit.dyndns.tv:80/TechTA/api/GetQuizByClass?clid=%@",[self.classes valueForKey:@"clid"]];
+    [request setURL:[NSURL URLWithString:test]];
+    //設定連線方式
+    [request setHTTPMethod:@"GET"];
+    
+    //轉換為NSData傳送
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString* data2 = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",data2);
+    //NSMutableDictionary* getuserinfo = [data2 JSONValue];
+    NSMutableArray* logarr=[data2 JSONValue];
+    for (int i=0;i<[logarr count] ; i++) {
+        NSMutableDictionary* tempDict = [logarr objectAtIndex:i];
+        if ([[tempDict valueForKey:@"active"]isEqualToString:@"1"]) {
+            self.QADict=tempDict;
+            break;
+        }
+    }
+    [self refreshView];
     
 }
 
@@ -146,13 +166,9 @@
     NSString* choicestr = [self.QADict valueForKey:@"choice"];
     NSMutableDictionary* choiceDict =[choicestr JSONValue];
     self.aButton.titleLabel.text = [choiceDict valueForKey:@"A"];
-        [self.aButton.titleLabel sizeThatFits:[self.aButton.titleLabel.text sizeWithFont:[UIFont systemFontOfSize:15]]];
     self.bButton.titleLabel.text = [choiceDict valueForKey:@"B"];
-        [self.aButton.titleLabel sizeToFit];
     self.cButton.titleLabel.text = [choiceDict valueForKey:@"C"];
-        [self.aButton.titleLabel sizeToFit];
     self.dButton.titleLabel.text = [choiceDict valueForKey:@"D"];
-        [self.aButton.titleLabel sizeToFit];
         
     }
 }
