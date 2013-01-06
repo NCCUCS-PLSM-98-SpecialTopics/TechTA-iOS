@@ -37,6 +37,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self.spinner stopAnimating];
+        if(self.myWS == nil){
+            TAWebSocket *ws =  [[TAWebSocket alloc] init];
+            [ws  startTAWebSocket:self];
+            self.myWS = ws;
+        }
     }
     return self;
 }
@@ -94,11 +100,54 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
     TAClassesListViewController* classview = [[TAClassesListViewController alloc]initWithNibName:@"TAClassesListViewController" bundle:nil];
     classview.classArray=[[self.CourseArray objectAtIndex:indexPath.row] objectForKey:@"classes"];
     classview.connection= connection;
     classview.currentcourse = [self.CourseArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:classview animated:YES];
+     */
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+    [self loadData];
+    NSLog(@"selected");
+    self.classArray = [[self.CourseArray objectAtIndex:indexPath.row] objectForKey:@"classes"];
+    
+    for (int i=0; i<[self.classArray count]; i++) {
+        if ([[[self.classArray objectAtIndex:i] valueForKey:@"active"] isEqualToString:@"1"]) {
+            TAASKViewController* askView=[[TAASKViewController alloc]initWithNibName:@"TAASKViewController" bundle:nil];
+            askView.connection=self.connection;
+            askView.userInfo=self.userInfo;
+            askView.classes=[self.classArray objectAtIndex:i];
+            askView.currentCourse = [self.classArray objectAtIndex:indexPath.row];
+            
+
+            TAQAViewController* qaView = [[TAQAViewController alloc]initWithNibName:@"TAQAViewController" bundle:nil];
+            qaView.userInfo=self.userInfo;
+            qaView.classes=[self.classArray objectAtIndex:i];
+            qaView.connection=self.connection;
+            
+            
+            _tabBarController = [[UITabBarController alloc]init];
+            _tabBarController.viewControllers =[NSArray arrayWithObjects:askView,qaView, nil];
+            
+            [self.navigationController pushViewController:_tabBarController animated:YES];
+            [[self navigationController] setNavigationBarHidden:NO animated:YES];
+            break;
+        }
+        else if (i==([self.classArray count]-1)) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                              message:@"No active class now."
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }
+    }
+    //[self loadData];
+    [self.spinner stopAnimating];
+
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -108,7 +157,7 @@
 
 
 -(void)loadData{
-    
+    NSLog(@"data loading");
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     //NSMutableURLRequest *request=testrequest;
     //宣告一個 NSURL 並給予記憶體空間、連線位置
@@ -181,7 +230,10 @@
     
 }
 
-
+-(void)threadStartAnimating:(id)data
+{
+    [self.spinner startAnimating];
+}
 
 
 
@@ -221,5 +273,44 @@
 {
     connection=theConnection;
 }
+
+-(void)socketOpened
+{
+    if(self.userInfo ==nil){
+        UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                          message:@"Something was Wrong."
+                                                         delegate:nil
+                                                cancelButtonTitle:@"OK"
+                                                otherButtonTitles:nil];
+        [message show];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    else{
+        NSString* chatid = [self.userInfo valueForKey:@"chatid"];
+        NSArray* obs = [[NSArray alloc] initWithObjects:@"login",chatid, nil];
+        NSArray* ks =[[NSArray alloc]initWithObjects:@"command",@"user", nil];
+        NSMutableDictionary* inputDict = [[NSMutableDictionary alloc] initWithObjects:obs forKeys:ks];
+        NSString *inputText = [inputDict JSONRepresentation];
+        [self.myWS sendMessage:inputText];
+        NSLog(@"%@",inputText);
+        
+    }
+}
+
+- (BOOL)ReciveMessage:(NSString*) aMessage
+{
+    NSMutableDictionary* msgdict = [aMessage JSONValue];
+    if (msgdict!=nil) {
+        if([[msgdict valueForKey:@"message"] isEqualToString:@"Message"]){
+            NSString* datastr = [msgdict objectForKey:@"data"];
+            NSMutableDictionary* datadict = [datastr JSONValue];
+            if ([[datadict valueForKey:@"type"]isEqualToString:@"closeclass"]) {
+                [self loadData];
+            }
+        }
+    }
+    return true;
+}
+
 
 @end
