@@ -71,6 +71,7 @@
 - (void) didClose:(NSUInteger) aStatusCode message:(NSString*) aMessage error:(NSError*) aError
 {
     NSLog(@"WebSocket closed. %@",aMessage);
+    [self.ws open];
 }
 
 /**

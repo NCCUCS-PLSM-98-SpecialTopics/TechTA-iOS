@@ -99,6 +99,7 @@
                                                         cancelButtonTitle:@"OK"
                                                         otherButtonTitles:nil];
                 [message show];
+                break;
             }
             case 2:{
                 TARegistViewController* registView=[[TARegistViewController alloc] initWithNibName:@"TARegistViewController" bundle:nil];

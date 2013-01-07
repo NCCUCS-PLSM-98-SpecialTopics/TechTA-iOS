@@ -159,16 +159,26 @@
         self.bButton.titleLabel.text=@"";
         self.cButton.titleLabel.text=@"";
         self.dButton.titleLabel.text=@"";
+        self.aButtonLabel.text = @"";
+        self.bButtonLabel.text = @"";
+        self.cButtonLabel.text = @"";
+        self.dButtonLabel.text = @"";
     }
     else{
-
-    self.titleLabel.text=[self.QADict valueForKey:@"question"];
-    NSString* choicestr = [self.QADict valueForKey:@"choice"];
-    NSMutableDictionary* choiceDict =[choicestr JSONValue];
-    self.aButton.titleLabel.text = [choiceDict valueForKey:@"A"];
-    self.bButton.titleLabel.text = [choiceDict valueForKey:@"B"];
-    self.cButton.titleLabel.text = [choiceDict valueForKey:@"C"];
-    self.dButton.titleLabel.text = [choiceDict valueForKey:@"D"];
+        
+        self.titleLabel.text=[self.QADict valueForKey:@"question"];
+        NSString* choicestr = [self.QADict valueForKey:@"choice"];
+        NSMutableDictionary* choiceDict =[choicestr JSONValue];
+        /*
+         self.aButton.titleLabel.text = [choiceDict valueForKey:@"A"];
+         self.bButton.titleLabel.text = [choiceDict valueForKey:@"B"];
+         self.cButton.titleLabel.text = [choiceDict valueForKey:@"C"];
+         self.dButton.titleLabel.text = [choiceDict valueForKey:@"D"];
+         */
+        self.aButtonLabel.text = [choiceDict valueForKey:@"A"];
+        self.bButtonLabel.text = [choiceDict valueForKey:@"B"];
+        self.cButtonLabel.text = [choiceDict valueForKey:@"C"];
+        self.dButtonLabel.text = [choiceDict valueForKey:@"D"];
         
     }
 }

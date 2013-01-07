@@ -15,6 +15,10 @@
 @property (nonatomic,retain) IBOutlet UIButton* bButton;
 @property (nonatomic,retain) IBOutlet UIButton* cButton;
 @property (nonatomic,retain) IBOutlet UIButton* dButton;
+@property(nonatomic,retain) IBOutlet UILabel* aButtonLabel;
+@property(nonatomic,retain) IBOutlet UILabel* bButtonLabel;
+@property(nonatomic,retain) IBOutlet UILabel* cButtonLabel;
+@property(nonatomic,retain) IBOutlet UILabel* dButtonLabel;
 @property (nonatomic,retain) IBOutlet UILabel* titleLabel;
 @property (strong, nonatomic) TAWebSocket* myWS ;
 @property (strong, nonatomic) NSMutableDictionary* QADict;

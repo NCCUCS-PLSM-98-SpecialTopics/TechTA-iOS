@@ -55,7 +55,11 @@
     //NSMutableDictionary* getuserinfo = [data2 JSONValue];
     NSMutableArray* logarr=[data2 JSONValue];
     for (int i=0;i<[logarr count] ; i++) {
+        if ([[[logarr objectAtIndex:i]valueForKey:@"role"]isEqualToString:@"student"]) {
+            self.inputQ.text = [NSString stringWithFormat:@"匿名:%@\n%@",[[logarr objectAtIndex:i] valueForKey:@"content"],self.inputQ.text];
+        }else{
         self.inputQ.text = [NSString stringWithFormat:@"%@ : %@\n%@",[[logarr objectAtIndex:i] valueForKey:@"account"],[[logarr objectAtIndex:i] valueForKey:@"content"],self.inputQ.text];
+        }
     }
     
     
@@ -182,7 +186,11 @@
             NSString* datastr = [msgdict objectForKey:@"data"];
             NSMutableDictionary* datadict = [datastr JSONValue];
             if ([[datadict valueForKey:@"type"]isEqualToString:@"message"]) {
+                if ([[datadict valueForKey:@"role"]isEqualToString:@"student"]) {
+                    self.inputQ.text = [NSString stringWithFormat:@"匿名:%@\n%@",[datadict valueForKey:@"content"],self.inputQ.text];
+                }else{
                 self.inputQ.text = [NSString stringWithFormat:@"%@:%@\n%@",[datadict valueForKey:@"account"],[datadict valueForKey:@"content"],self.inputQ.text];
+                }
             }else if([[datadict valueForKey:@"type"]isEqualToString:@"bonus"]){
                 [self.coinImageView startAnimating];
             }
